@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".SummaryActivity">
+
+    <!-- Length TextView -->
+    <TextView
+        android:id="@+id/textViewLength"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/summary_length"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Length Slider -->
+    <SeekBar
+        android:id="@+id/seekBarLength"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginBottom="16dp"
+        android:layout_toEndOf="@id/textViewLength"/>
+
+    <!-- Text Input Area -->
+    <EditText
+        android:id="@+id/editTextInput"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_below="@+id/seekBarLength"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/border_box"
+        android:gravity="top"
+        android:hint="@string/input_your_text"
+        android:inputType="textMultiLine"
+        android:paddingStart="10dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="10dp"
+        android:scrollbars="vertical" />
+
+    <!-- Summarize Button -->
+    <Button
+        android:id="@+id/buttonSummarize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextInput"
+        android:layout_centerHorizontal="true"
+        android:text="@string/summarize" />
+
+</RelativeLayout>
