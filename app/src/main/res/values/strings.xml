@@ -7,4 +7,6 @@
     <string name="login">Login</string>
     <string name="signup">Sign up free</string>
     <string name="google">Continue with Google</string>
+    <string name="iv_onboarding">Onboarding image</string>
+    <string name="onboarding_viewpager">Onboarding viewpager</string>
 </resources>

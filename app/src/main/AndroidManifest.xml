@@ -26,7 +26,7 @@
             android:name=".main.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".introductory.IntroductoryActivity"
+            android:name=".onboarding.IntroductoryActivity"
             android:exported="false" />
     </application>
 

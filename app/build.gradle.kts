@@ -49,8 +49,17 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
-    implementation("androidx.activity:activity-ktx:1.8.2")
-    implementation("androidx.core:core-splashscreen:1.0.1")
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.activity.ktx)
+    implementation (libs.androidx.recyclerview)
+    implementation (libs.androidx.viewpager2)
+
+
+    // splashscreen
+    implementation(libs.androidx.core.splashscreen)
+
+    //onboarding animation
+    implementation (libs.pageindicatorview)
+    implementation (libs.lottie)
 
 }

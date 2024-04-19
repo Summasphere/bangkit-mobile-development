@@ -1,14 +1,14 @@
-package com.minervaai.summasphere.introductory
+package com.minervaai.summasphere.onboarding
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.minervaai.summasphere.databinding.ActivityLandingBinding
+import com.minervaai.summasphere.databinding.ActivityOnboardingBinding
 
 class IntroductoryActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityLandingBinding
+    private lateinit var binding: ActivityOnboardingBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityLandingBinding.inflate(layoutInflater)
+        binding = ActivityOnboardingBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
 }
