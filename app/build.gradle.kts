@@ -54,12 +54,13 @@ dependencies {
     implementation (libs.androidx.recyclerview)
     implementation (libs.androidx.viewpager2)
 
-
     // splashscreen
     implementation(libs.androidx.core.splashscreen)
 
     //onboarding animation
     implementation (libs.pageindicatorview)
     implementation (libs.lottie)
+
+    implementation("com.tbuonomo:dotsindicator:5.0")
 
 }

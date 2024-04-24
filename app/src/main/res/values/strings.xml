@@ -9,4 +9,6 @@
     <string name="google">Continue with Google</string>
     <string name="iv_onboarding">Onboarding image</string>
     <string name="onboarding_viewpager">Onboarding viewpager</string>
+    <string name="wait_are_you_already_signed_up">Wait, are you already signed up?</string>
+    <string name="introduce_in_home">Enjoy the ease and efficiency of gaining important insights with Summasphere</string>
 </resources>
