@@ -8,7 +8,6 @@ import android.os.Looper
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.minervaai.summasphere.main.MainActivity
 
 
 @SuppressLint("CustomSplashScreen")

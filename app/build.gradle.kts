@@ -60,7 +60,4 @@ dependencies {
     //onboarding animation
     implementation (libs.pageindicatorview)
     implementation (libs.lottie)
-
-    implementation("com.tbuonomo:dotsindicator:5.0")
-
 }

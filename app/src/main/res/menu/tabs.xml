@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/tab_home"
+        android:icon="@drawable/baseline_home_24"
+        android:title="aaa"/>
+    <item
+        android:id="@+id/tab_alarm"
+        android:icon="@drawable/baseline_alarm_24"
+        android:title="bbb"/>
+    <item
+        android:id="@+id/tab_apps"
+        android:icon="@drawable/baseline_apps_24"
+        android:title="ccc"/>
+</menu>

@@ -1,80 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     tools:context=".main.MainActivity">
 
-    <!-- Summarizer and Analyzer Tabs -->
-    <LinearLayout
-        android:id="@+id/linearLayoutTabs"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="16dp"
-        android:weightSum="2">
+        android:background="@drawable/nav_bottom_bg"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
+        app:menu="@menu/tabs"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
-        <Button
-            android:id="@+id/buttonSummarizer"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/summarizer"/>
-
-        <Button
-            android:id="@+id/buttonAnalyzer"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/analyzer"/>
-    </LinearLayout>
-
-    <!-- Text Input Area -->
-    <EditText
-        android:id="@+id/editTextInput"
-        android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:layout_below="@id/linearLayoutTabs"
-        android:autofillHints=""
-        android:hint="@string/input_your_text"
-        android:inputType="textMultiLine"
-        android:gravity="top"
-        android:background="@drawable/border1"
-        android:layout_marginBottom="16dp"
-        android:paddingStart="10dp"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp"
-        android:paddingEnd="10dp"
-        android:scrollbars="vertical"/>
-
-    <!-- Length TextView -->
-    <TextView
-        android:id="@+id/textViewLength"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Length"
-        android:layout_below="@id/editTextInput"
-        android:layout_alignParentStart="true" />
-
-    <!-- Length Slider -->
-    <SeekBar
-        android:id="@+id/seekBarLength"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginBottom="16dp"
-        android:layout_toEndOf="@id/textViewLength"
-        android:layout_below="@id/editTextInput"/>
-
-    <Button
-        android:id="@+id/buttonSummarize"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/seekBarLength"
-        android:layout_centerHorizontal="true"
-        android:text="Summarize" />
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
