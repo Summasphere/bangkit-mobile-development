@@ -1,4 +1,4 @@
-package com.minervaai.summasphere.main
+package com.minervaai.summasphere.ui.main
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge

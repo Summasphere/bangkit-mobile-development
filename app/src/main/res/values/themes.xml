@@ -7,27 +7,27 @@
 
     <style name="Theme.Summasphere" parent="Base.Theme.Summasphere" />
 
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/dark_blue</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/avd_summasphere</item>
+        <item name="windowSplashScreenAnimationDuration">1000</item>
+        <item name="postSplashScreenTheme">@style/Base.Theme.Summasphere</item>
+    </style>
+
     <style name="TextStyle"/>
-
-    <style name="TextStyle.LOGO">
-        <item name="fontFamily">@font/montserrat_semibold</item>
-        <item name="android:textSize">28sp</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/white</item>
-    </style>
-
-    <style name="TextStyle.TITLE2">
-        <item name="fontFamily">@font/montserrat_semibold</item>
-        <item name="android:textSize">22sp</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/white</item>
-    </style>
 
     <style name="TextStyle.TITLE">
         <item name="fontFamily">@font/montserrat_semibold</item>
         <item name="android:textSize">18sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="TextStyle.TITLE2">
+        <item name="fontFamily">@font/montserrat_semibold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/dark_blue</item>
     </style>
 
     <style name="TextStyle.SUBTITLE">
@@ -38,22 +38,44 @@
 
     <style name="TextStyle.VALUE">
         <item name="fontFamily">@font/montserrat_regular</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/dark_blue</item>
+    </style>
+
+    <style name="TextStyle.VALUE_DATE">
+        <item name="fontFamily">@font/montserrat_medium</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/dark_blue</item>
+    </style>
+
+    <style name="TextStyle.VALUE_SNACKBAR">
+        <item name="fontFamily">@font/montserrat_regular</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/dark_blue</item>
+    </style>
+
+    <style name="TextStyle.LABEL">
+        <item name="fontFamily">@font/montserrat_medium</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name="TextStyle.LABEL">
-        <item name="fontFamily">@font/montserrat_regular</item>
-        <item name="android:textSize">16sp</item>
-        <item name="android:layout_marginTop">8dp</item>
+    <style name="TextStyle.LABEL_NAVBAR">
+        <item name="fontFamily">@font/montserrat_medium</item>
+        <item name="android:textSize">10sp</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/white</item>
     </style>
 
     <style name="TextStyle.BUTTON">
         <item name="fontFamily">@font/montserrat_medium</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:textSize">14sp</item>
         <item name="android:layout_marginTop">16dp</item>
         <item name="android:gravity">center</item>

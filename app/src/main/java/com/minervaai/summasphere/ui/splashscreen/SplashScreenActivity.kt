@@ -1,4 +1,4 @@
-package com.minervaai.summasphere.splashscreen
+package com.minervaai.summasphere.ui.splashscreen
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -8,7 +8,7 @@ import android.os.Looper
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.minervaai.summasphere.main.MainActivity
+import com.minervaai.summasphere.ui.main.MainActivity
 
 
 @SuppressLint("CustomSplashScreen")

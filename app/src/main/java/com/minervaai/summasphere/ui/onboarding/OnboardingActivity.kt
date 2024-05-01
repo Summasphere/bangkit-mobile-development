@@ -1,4 +1,4 @@
-package com.minervaai.summasphere.onboarding
+package com.minervaai.summasphere.ui.onboarding
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

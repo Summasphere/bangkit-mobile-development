@@ -1,4 +1,4 @@
-package com.minervaai.summasphere.splashscreen
+package com.minervaai.summasphere.ui.splashscreen
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
