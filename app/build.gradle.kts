@@ -52,12 +52,12 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.activity.ktx)
     implementation (libs.androidx.recyclerview)
-    implementation (libs.androidx.viewpager2)
+    // implementation (libs.androidx.viewpager2)
 
     // splashscreen
     implementation(libs.androidx.core.splashscreen)
 
     //onboarding animation
-    implementation (libs.pageindicatorview)
+    // implementation (libs.pageindicatorview)
     implementation (libs.lottie)
 }

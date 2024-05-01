@@ -8,6 +8,7 @@ import android.os.Looper
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import com.minervaai.summasphere.main.MainActivity
 
 
 @SuppressLint("CustomSplashScreen")
@@ -30,7 +31,7 @@ class SplashScreenActivity : AppCompatActivity() {
     }
 
     private fun goToMainActivity(){
-        Intent(this,MainActivity::class.java).also{
+        Intent(this, MainActivity::class.java).also{
             startActivity(it)
             finish()
         }
