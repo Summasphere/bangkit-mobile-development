@@ -1,12 +1,16 @@
 package com.minervaai.summasphere.ui.splashscreen
 
+import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.View
+import android.view.animation.DecelerateInterpolator
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.animation.doOnEnd
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.minervaai.summasphere.ui.main.MainActivity
 
@@ -20,6 +24,14 @@ class SplashScreenActivity : AppCompatActivity() {
             setKeepOnScreenCondition {
                 !viewModel.isReady.value
             }
+            setOnExitAnimationListener { splashScreenViewProvider ->
+                val splashScreenView = splashScreenViewProvider.view
+                val fadeOut = ObjectAnimator.ofFloat(splashScreenView, View.ALPHA, 1f, 0f)
+                fadeOut.duration = 1000L
+                fadeOut.interpolator = DecelerateInterpolator()
+                fadeOut.doOnEnd { splashScreenViewProvider.remove() }
+                fadeOut.start()
+            }
         }
     }
 
@@ -27,7 +39,7 @@ class SplashScreenActivity : AppCompatActivity() {
         super.onResume()
         Handler(Looper.getMainLooper()).postDelayed({
             goToMainActivity()
-        }, 1000L)
+        }, 2000L)
     }
 
     private fun goToMainActivity(){
