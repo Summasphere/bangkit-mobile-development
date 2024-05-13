@@ -53,4 +53,23 @@
         android:layout_centerHorizontal="true"
         android:text="@string/summarize" />
 
+    <!-- Add a ScrollView to make the TextView scrollable -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonSummarize"
+        android:layout_marginTop="16dp"
+        android:fillViewport="true">
+
+        <TextView
+            android:id="@+id/textViewSummary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </ScrollView>
+
 </RelativeLayout>
