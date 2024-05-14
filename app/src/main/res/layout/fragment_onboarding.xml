@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:padding="30dp"
+    android:gravity="center"
+    tools:context=".ui.onboarding.OnboardingActivity">
+
+    <ImageView
+        android:id="@+id/iv_onboarding_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:contentDescription="@string/iv_onboarding_logo"
+        android:src="@drawable/onboarding_logo"
+        app:layout_constraintBottom_toTopOf="@id/iv_onboarding"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/iv_onboarding"
+        android:layout_width="320dp"
+        android:layout_height="320dp"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:scaleType="centerCrop"
+        app:lottie_rawRes="@raw/lottie_document"
+        app:lottie_loop="true"
+        app:lottie_autoPlay="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tv_onboarding_title"
+        app:layout_constraintTop_toBottomOf="@id/iv_onboarding_logo"/>
+
+    <TextView
+        android:id="@+id/tv_onboarding_title"
+        style="@style/TextStyle.HEADLINE"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_onboarding"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="@string/tv_title_onboarding_1"
+        android:textColor="@color/white_grey"
+        app:layout_constraintBottom_toTopOf="@id/tv_onboarding_description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_onboarding"
+        tools:ignore="TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/tv_onboarding_description"
+        style="@style/TextStyle.SUBTITLE"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_onboarding_title"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:text="@string/tv_description_onboarding_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_onboarding_title"
+        tools:ignore="TextContrastCheck" />
+</androidx.constraintlayout.widget.ConstraintLayout>

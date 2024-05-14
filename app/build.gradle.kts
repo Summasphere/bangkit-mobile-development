@@ -58,7 +58,6 @@ dependencies {
     implementation(libs.androidx.core.splashscreen)
 
     //onboarding animation
-    // implementation (libs.pageindicatorview)
     implementation (libs.lottie)
 
     // retrofit

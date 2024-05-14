@@ -12,8 +12,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.animation.doOnEnd
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.minervaai.summasphere.SummaryActivity
-import com.minervaai.summasphere.ui.main.MainActivity
+import com.minervaai.summasphere.ui.onboarding.OnboardingActivity
 
 
 @SuppressLint("CustomSplashScreen")
@@ -44,7 +43,7 @@ class SplashScreenActivity : AppCompatActivity() {
     }
 
     private fun goToMainActivity(){
-        Intent(this, SummaryActivity::class.java).also{
+        Intent(this, OnboardingActivity::class.java).also{
             startActivity(it)
             finish()
         }
