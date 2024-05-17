@@ -1,5 +1,6 @@
 package com.minervaai.summasphere
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -22,6 +23,7 @@ class SummaryActivity : AppCompatActivity() {
     private lateinit var text: EditText
     private lateinit var btnSumaary: Button
     private lateinit var txtViewSummary: TextView
+
     val client = OkHttpClient()
     val reqBody = JSONObject()
     val BASE_URL = "https://7b73-34-126-158-225.ngrok-free.app/summarize/" // ngrok URL
@@ -55,6 +57,7 @@ class SummaryActivity : AppCompatActivity() {
             override fun onFailure(call: Call, e: IOException) {
                 e.printStackTrace()
             }
+            @SuppressLint("SetTextI18n")
             override fun onResponse(call: Call, response: Response) {
                 val body = response.body()?.string()
                 val json = body?.let { JSONObject(it) }

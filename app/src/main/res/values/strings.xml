@@ -22,4 +22,5 @@
     <string name="tv_title_onboarding_3">Title</string>
     <string name="tv_description_onboarding_3">Description</string>
     <string name="iv_onboarding_logo">Onboarding images</string>
+    <string name="default_web_client_id" translatable="false">579138698197-92am5np96brof03gdhe43dtq28k2qpvk.apps.googleusercontent.com</string>
 </resources>

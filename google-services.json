@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "579138698197",
+    "project_id": "summasphere",
+    "storage_bucket": "summasphere.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:579138698197:android:65bca0b4f5394daad69b5c",
+        "android_client_info": {
+          "package_name": "com.minervaai.summasphere"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUMDikaCl4dO04qA1DF44S4LLI5Vqv1XE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
