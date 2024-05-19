@@ -24,9 +24,16 @@
 
     <style name="TextStyle"/>
 
-    <style name="TextStyle.HEADLINE">
+    <style name="TextStyle.TITLE_ONBOARDING">
         <item name="fontFamily">@font/montserrat_semibold</item>
         <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white_grey</item>
+    </style>
+
+    <style name="TextStyle.TITLE_LOGIN_SIGNUP">
+        <item name="fontFamily">@font/montserrat_semibold</item>
+        <item name="android:textSize">40sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/white_grey</item>
     </style>
@@ -94,6 +101,12 @@
         <item name="android:textSize">14sp</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/white_grey</item>
+    </style>
+
+    <style name="TextStyle.INPUT">
+        <item name="fontFamily">@font/montserrat_regular</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColorHint">@color/white_grey</item>
     </style>
 
 </resources>

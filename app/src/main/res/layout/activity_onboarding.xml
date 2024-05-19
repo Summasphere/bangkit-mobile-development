@@ -62,6 +62,7 @@
             android:text="@string/btn_signup"
             app:backgroundTint="@null"
             app:icon="@drawable/ic_email"
+            app:iconSize="24dp"
             app:iconGravity="textStart"
             tools:ignore="VisualLintButtonSize,TextContrastCheck" />
 
@@ -78,6 +79,7 @@
             app:backgroundTint="@null"
             app:icon="@drawable/ic_google"
             app:iconTint="@null"
+            app:iconSize="24dp"
             app:iconGravity="textStart"
             tools:ignore="VisualLintButtonSize" />
 

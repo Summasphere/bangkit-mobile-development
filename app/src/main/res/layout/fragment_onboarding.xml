@@ -39,7 +39,7 @@
 
     <TextView
         android:id="@+id/tv_onboarding_title"
-        style="@style/TextStyle.HEADLINE"
+        style="@style/TextStyle.TITLE_ONBOARDING"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/iv_onboarding"

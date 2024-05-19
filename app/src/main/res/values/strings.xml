@@ -23,4 +23,19 @@
     <string name="tv_description_onboarding_3">Description</string>
     <string name="iv_onboarding_logo">Onboarding images</string>
     <string name="default_web_client_id" translatable="false">579138698197-92am5np96brof03gdhe43dtq28k2qpvk.apps.googleusercontent.com</string>
+    <string name="input_email">Email</string>
+    <string name="input_password">Password</string>
+    <string name="btn_input_login">Login</string>
+    <string name="btn_login_google">Login with Google</string>
+    <string name="tv_forgot_password">Forgot Password</string>
+    <string name="logo_summasphere">Logo Summasphere</string>
+    <string name="divider_or">OR</string>
+    <string name="tv_termsofuse">Terms of use</string>
+    <string name="tv_privacypolicy">Privacy policy</string>
+    <string name="footer_divider">|</string>
+    <string name="tv_welcome">Welcome</string>
+    <string name="tv_back">back</string>
+    <string name="tv_dont_have_account">Don\'t have an account?</string>
+    <string name="tv_signup">Sign up</string>
+    <string name="tv_login_logo">Login logo</string>
 </resources>

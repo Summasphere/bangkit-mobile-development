@@ -5,7 +5,9 @@
     <color name="white_grey">#FAFEFF</color>
     <color name="grey">#E6E6E6</color>
     <color name="black_grey">#262626</color>
+    <color name="darkblue_bg">#0B001A</color>
     <color name="dark_blue">#0B0A24</color>
+    <color name="blue_bg">#0A2A43</color>
     <color name="medium_blue">#278DCC</color>
     <color name="light_blue">#59DDFE</color>
     <color name="light_white_blue">#D1ECFC</color>

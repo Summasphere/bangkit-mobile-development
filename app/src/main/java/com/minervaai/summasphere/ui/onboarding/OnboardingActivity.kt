@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.minervaai.summasphere.ui.onboarding
 
 import android.app.Activity
@@ -16,13 +18,12 @@ import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.GoogleAuthCredential
 import com.google.firebase.auth.GoogleAuthProvider
 import com.minervaai.summasphere.R
 import com.minervaai.summasphere.SummaryActivity
 import com.minervaai.summasphere.databinding.ActivityOnboardingBinding
-import kotlin.math.sign
 
+@Suppress("DEPRECATION")
 class OnboardingActivity : AppCompatActivity() {
     private lateinit var mViewPager: ViewPager2
     private lateinit var binding: ActivityOnboardingBinding
@@ -87,20 +88,20 @@ class OnboardingActivity : AppCompatActivity() {
                         Intent(this, SummaryActivity::class.java).also {
                             startActivity(it)
                         }
-                        Toast.makeText(this, "Successfully signed in with Google.", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Successfully login", Toast.LENGTH_SHORT).show()
                     } else {
                         Log.e("GoogleSignIn", "signInWithCredential:failure", signInTask.exception)
-                        Toast.makeText(this, "Google Sign-In failed, please try again.", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Login failed, please try again", Toast.LENGTH_SHORT).show()
                     }
                 }
                 Log.d("GoogleSignIn", "firebaseAuthWithGoogle:" + account.id)
             } else {
                 Log.e("GoogleSignIn", "Google sign in failed 2", task.exception)
-                Toast.makeText(this, "Google Sign-In failed, please try again.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Login failed, please try again", Toast.LENGTH_SHORT).show()
             }
         } catch (e: ApiException) {
             Log.e("GoogleSignIn", "Google sign in failed 3", e)
-            Toast.makeText(this, "Google Sign-In failed, please try again.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Login failed, please try again", Toast.LENGTH_SHORT).show()
         }
     }
 }
