@@ -15,6 +15,9 @@
         android:theme="@style/Theme.Summasphere"
         tools:targetApi="31">
         <activity
+            android:name=".ResultSummarizerActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.main.MainActivity"
             android:exported="false" />
         <activity

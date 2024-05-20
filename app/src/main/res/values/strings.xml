@@ -7,6 +7,7 @@
     <string name="summarize">Summarize</string>
     <string name="_0_2000">0/2000</string>
     <string name="btn_login">Login</string>
+    <string name="btn_copy_text">Copy Text</string>
     <string name="btn_signup">Sign up Free</string>
     <string name="btn_google">Continue with Google</string>
     <string name="onboarding_viewpager">Onboarding viewpager</string>
@@ -26,6 +27,7 @@
     <string name="input_email">Email</string>
     <string name="input_password">Password</string>
     <string name="btn_input_login">Login</string>
+    <string name="btn_dl_pdf">Download PDF</string>
     <string name="btn_login_google">Login with Google</string>
     <string name="tv_forgot_password">Forgot Password</string>
     <string name="logo_summasphere">Logo Summasphere</string>
@@ -40,6 +42,7 @@
     <string name="tv_login_logo">Login logo</string>
     <string name="back_btn">Back button</string>
     <string name="tv_history">History</string>
+    <string name="tv_summarizer_result">Summarizer Result</string>
     <string name="btn_delete">Delete button</string>
     <string name="search_text">Search</string>
 </resources>

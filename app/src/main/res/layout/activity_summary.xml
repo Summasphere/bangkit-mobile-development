@@ -36,6 +36,8 @@
         android:layout_marginBottom="16dp"
         android:background="@drawable/border_box"
         android:gravity="top"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
         android:hint="@string/input_your_text"
         android:inputType="textMultiLine"
         android:paddingStart="10dp"

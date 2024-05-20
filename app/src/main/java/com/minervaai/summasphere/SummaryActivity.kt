@@ -1,6 +1,7 @@
 package com.minervaai.summasphere
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -26,7 +27,7 @@ class SummaryActivity : AppCompatActivity() {
 
     val client = OkHttpClient()
     val reqBody = JSONObject()
-    val BASE_URL = "https://7b73-34-126-158-225.ngrok-free.app/summarize/" // ngrok URL
+    val BASE_URL = "https://37d7-34-90-49-108.ngrok-free.app/summarize/" // ngrok URL
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,6 +68,9 @@ class SummaryActivity : AppCompatActivity() {
                     print(summary)
                     runOnUiThread {
                         txtViewSummary.text = summary
+                        val intent = Intent(this@SummaryActivity, ResultSummarizerActivity::class.java)
+                        intent.putExtra("SUMMARY_RESULT", summary)
+                        startActivity(intent)
                     }
                 } else {
                     Log.d("SummaryActivity", "Failed to summarize text")
