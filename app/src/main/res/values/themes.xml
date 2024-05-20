@@ -47,9 +47,9 @@
 
     <style name="TextStyle.TITLE2">
         <item name="fontFamily">@font/montserrat_semibold</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/dark_blue</item>
+        <item name="android:textColor">@color/black_grey</item>
     </style>
 
     <style name="TextStyle.SUBTITLE">
@@ -70,7 +70,7 @@
         <item name="fontFamily">@font/montserrat_medium</item>
         <item name="android:textSize">12sp</item>
         <item name="android:gravity">center</item>
-        <item name="android:textColor">@color/dark_blue</item>
+        <item name="android:textColor">@color/black_grey</item>
     </style>
 
     <style name="TextStyle.VALUE_DIALOG">
@@ -108,5 +108,17 @@
         <item name="android:textSize">14sp</item>
         <item name="android:textColorHint">@color/white_grey</item>
     </style>
+
+    <style name="AppBarStyle">
+        <item name="android:backgroundTint">@android:color/transparent</item>
+    </style>
+
+    <style name="TextStyle.SEARCH_VIEW">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColorHint">@color/dark_grey</item>
+        <item name="fontFamily">@font/montserrat_regular</item>
+    </style>
+
 
 </resources>

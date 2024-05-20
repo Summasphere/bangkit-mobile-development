@@ -7,6 +7,102 @@
     android:background="@drawable/main_gradient_bg"
     tools:context="ui.history.HistoryActivity">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/historybar_layout"
+        style="@style/AppBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:elevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/history_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="2dp"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="?attr/actionBarTheme"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <ImageButton
+                android:id="@+id/btn_back"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="2dp"
+                android:background="@null"
+                android:contentDescription="@string/back_btn"
+                android:src="@drawable/ic_back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:ignore="RedundantDescriptionCheck,ImageContrastCheck" />
+
+            <TextView
+                android:id="@+id/tv_history"
+                style="@style/TextStyle.TITLE2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/tv_history"
+                android:textColor="@color/white_grey"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="NotSibling,TextContrastCheck" />
+
+            <ImageButton
+                android:id="@+id/btn_delete"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@null"
+                android:contentDescription="@string/btn_delete"
+                android:src="@drawable/ic_delete"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0"
+                tools:ignore="ImageContrastCheck,RedundantDescriptionCheck" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--        autifillHints perlu diperbaiki-->
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/sv_user"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:autofillHints="username"
+            android:background="@drawable/sv_background"
+            android:iconifiedByDefault="false"
+            android:inputType="text"
+            android:maxLines="1"
+            android:queryBackground="@android:color/transparent"
+            android:theme="@style/TextStyle.SEARCH_VIEW"
+            app:closeIcon="@drawable/ic_searchclose"
+            app:defaultQueryHint="@string/search_text"
+            app:iconifiedByDefault="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/history_toolbar"
+            app:searchIcon="@drawable/ic_search" />
+    </com.google.android.material.appbar.AppBarLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_article"
         android:layout_width="0dp"
@@ -15,7 +111,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/historybar_layout"
         tools:listitem="@layout/card_history"/>
 
 
