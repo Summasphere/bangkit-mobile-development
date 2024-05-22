@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/main_gradient_bg"
-    tools:context=".ResultSummarizerActivity">
+    tools:context=".ui.resultsummarizer.ResultSummarizerActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/historybar_layout"

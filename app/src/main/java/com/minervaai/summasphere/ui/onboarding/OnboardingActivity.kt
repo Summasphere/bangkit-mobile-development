@@ -20,8 +20,9 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.minervaai.summasphere.R
-import com.minervaai.summasphere.SummaryActivity
+import com.minervaai.summasphere.ui.summarizer.SummaryActivity
 import com.minervaai.summasphere.databinding.ActivityOnboardingBinding
+import com.minervaai.summasphere.ui.login.LoginActivity
 
 @Suppress("DEPRECATION")
 class OnboardingActivity : AppCompatActivity() {
@@ -52,7 +53,8 @@ class OnboardingActivity : AppCompatActivity() {
             googleSignIn()
         }
         binding.btnLogin.setOnClickListener {
-            finish() // belum di intent
+            val intent = Intent (this, LoginActivity ::class.java)
+            startActivity(intent)
         }
 
         mViewPager = findViewById(R.id.onboarding_viewpager)

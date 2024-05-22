@@ -1,4 +1,4 @@
-package com.minervaai.summasphere
+package com.minervaai.summasphere.ui.resultsummarizer
 
 import android.annotation.SuppressLint
 import android.content.ClipData
@@ -10,6 +10,8 @@ import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
+import com.minervaai.summasphere.R
+import com.minervaai.summasphere.ui.summarizer.SummaryActivity
 
 class ResultSummarizerActivity : AppCompatActivity() {
     private lateinit var editTextInput: EditText

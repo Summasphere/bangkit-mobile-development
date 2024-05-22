@@ -1,4 +1,4 @@
-package com.minervaai.summasphere
+package com.minervaai.summasphere.ui.summarizer
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -9,6 +9,8 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.minervaai.summasphere.R
+import com.minervaai.summasphere.ui.resultsummarizer.ResultSummarizerActivity
 import okhttp3.Call
 import okhttp3.Callback
 import okhttp3.MediaType

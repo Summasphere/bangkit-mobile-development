@@ -24,8 +24,8 @@
     <string name="tv_description_onboarding_3">Description</string>
     <string name="iv_onboarding_logo">Onboarding images</string>
     <string name="default_web_client_id" translatable="false">579138698197-92am5np96brof03gdhe43dtq28k2qpvk.apps.googleusercontent.com</string>
-    <string name="input_email">Email</string>
-    <string name="input_password">Password</string>
+    <string name="input_email_login">Email</string>
+    <string name="input_password_login">Password</string>
     <string name="btn_input_login">Login</string>
     <string name="btn_dl_pdf">Download PDF</string>
     <string name="btn_login_google">Login with Google</string>
@@ -39,10 +39,18 @@
     <string name="tv_back">back</string>
     <string name="tv_dont_have_account">Don\'t have an account?</string>
     <string name="tv_signup">Sign up</string>
-    <string name="tv_login_logo">Login logo</string>
+    <string name="tv_login_logo">Summasphere logo</string>
     <string name="back_btn">Back button</string>
     <string name="tv_history">History</string>
     <string name="tv_summarizer_result">Summarizer Result</string>
     <string name="btn_delete">Delete button</string>
     <string name="search_text">Search</string>
+    <string name="tv_create_your">Create your</string>
+    <string name="tv_account">account</string>
+    <string name="tv_have_account">Already have an account?</string>
+    <string name="tv_login">Login</string>
+    <string name="input_email">Email</string>
+    <string name="input_password">Password</string>
+    <string name="input_confirmpassword">Confirm password</string>
+    <string name="btn_signup_signupscreen">Sign up</string>
 </resources>
