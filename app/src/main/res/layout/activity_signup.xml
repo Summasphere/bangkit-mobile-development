@@ -83,71 +83,68 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/input_email_signup_layout"
-            style="@style/TextStyle.INPUT"
+            style="@style/CustomTextInputLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/input_email"
-            app:errorEnabled="true">
-            <com.google.android.material.textfield.TextInputEditText
+            app:errorEnabled="true"
+            app:hintTextColor="@color/white_grey">
+
+            <com.minervaai.summasphere.ui.customview.EmailInputEditText
                 android:id="@+id/input_email_signup"
                 style="@style/TextStyle.INPUT"
                 android:layout_width="360dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/input_bg"
+                android:layout_height="48dp"
+                android:hint="@string/input_email"
                 android:inputType="textEmailAddress"
-                android:textColorHint="@color/white_grey"/>
+                tools:ignore="TextContrastCheck"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/input_password_signup_layout"
-            style="@style/TextStyle.INPUT"
+            style="@style/CustomTextInputLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:errorEnabled="true"
-            app:endIconMode="password_toggle"
-            app:endIconTint="@color/white_grey"
-            app:errorIconDrawable="@null"
-            android:hint="@string/input_password">
-            <com.google.android.material.textfield.TextInputEditText
+            app:hintTextColor="@color/white_grey">
+
+            <com.minervaai.summasphere.ui.customview.PasswordInputEditText
                 android:id="@+id/input_password_signup"
                 style="@style/TextStyle.INPUT"
                 android:layout_width="360dp"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:textColorHint="@color/white_grey"
-                android:background="@drawable/input_bg"/>
+                android:layout_height="48dp"
+                android:hint="@string/input_password"
+                android:inputType="textEmailAddress"
+                tools:ignore="TextContrastCheck"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/input_confirmpassword_signup_layout"
-            style="@style/TextStyle.INPUT"
+            style="@style/CustomTextInputLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:errorEnabled="true"
-            app:endIconMode="password_toggle"
-            app:endIconTint="@color/white_grey"
-            app:errorIconDrawable="@null"
-            android:hint="@string/input_confirmpassword">
-            <com.google.android.material.textfield.TextInputEditText
+            app:hintTextColor="@color/white_grey">
+
+            <com.minervaai.summasphere.ui.customview.ConfirmPasswordInputEditText
                 android:id="@+id/input_confirmpassword_signup"
                 style="@style/TextStyle.INPUT"
                 android:layout_width="360dp"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:textColorHint="@color/white_grey"
-                android:background="@drawable/input_bg"/>
+                android:layout_height="48dp"
+                android:hint="@string/input_confirmpassword"
+                android:inputType="textEmailAddress"
+                tools:ignore="TextContrastCheck"/>
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_signup_signupscreen"
+        android:id="@+id/btn_signup"
         style="@style/TextStyle.BUTTON"
         android:layout_width="360dp"
         android:layout_height="48dp"
         android:layout_gravity="center"
         android:layout_marginTop="15dp"
         android:background="@drawable/btn_primary"
-        android:text="@string/btn_signup_signupscreen"
+        android:text="@string/btn_signup"
         app:backgroundTint="@null"
         app:layout_constraintTop_toBottomOf="@id/input_signup_layout"
         app:layout_constraintStart_toStartOf="parent"

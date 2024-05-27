@@ -52,5 +52,13 @@
     <string name="input_email">Email</string>
     <string name="input_password">Password</string>
     <string name="input_confirmpassword">Confirm password</string>
-    <string name="btn_signup_signupscreen">Sign up</string>
+    <string name="btn_signup_">Sign up</string>
+    <string name="email_required">Required</string>
+    <string name="invalid_email">Invalid email address</string>
+    <string name="password_required">Required</string>
+    <string name="invalid_password">Password must be 8 to 10 characters</string>
+    <string name="confirm_password_required">Required</string>
+    <string name="passwords_do_not_match">Passwords do not match</string>
+    <string name="input_error">Incorrect email or password, please try again</string>
+    <string name="fill_all_fields">Please fill in all required fields</string>
 </resources>

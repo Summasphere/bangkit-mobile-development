@@ -28,14 +28,14 @@
             android:src="@drawable/logo_summasphere" />
 
         <TextView
-            android:id="@+id/tv_login_welcome"
+            android:id="@+id/tv_welcome"
             style="@style/TextStyle.TITLE_LOGIN_SIGNUP"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/tv_welcome"/>
 
         <TextView
-            android:id="@+id/tv_login_back"
+            android:id="@+id/tv_back"
             style="@style/TextStyle.TITLE_LOGIN_SIGNUP"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -83,39 +83,38 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/input_email_login_layout"
-            style="@style/TextStyle.INPUT"
+            style="@style/CustomTextInputLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/input_email"
-            app:errorEnabled="true">
-            <com.google.android.material.textfield.TextInputEditText
+            app:errorEnabled="true"
+            app:hintTextColor="@color/white_grey">
+
+            <com.minervaai.summasphere.ui.customview.EmailInputEditText
                 android:id="@+id/input_email_login"
                 style="@style/TextStyle.INPUT"
                 android:layout_width="360dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/input_bg"
+                android:layout_height="48dp"
+                android:hint="@string/input_email"
                 android:inputType="textEmailAddress"
-                android:textColorHint="@color/white_grey"/>
+                tools:ignore="TextContrastCheck"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/input_password_login_layout"
-            style="@style/TextStyle.INPUT"
+            style="@style/CustomTextInputLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:errorEnabled="true"
-            app:endIconMode="password_toggle"
-            app:endIconTint="@color/white_grey"
-            app:errorIconDrawable="@null"
-            android:hint="@string/input_password">
-            <com.google.android.material.textfield.TextInputEditText
+            app:hintTextColor="@color/white_grey">
+
+            <com.minervaai.summasphere.ui.customview.PasswordInputEditText
                 android:id="@+id/input_password_login"
                 style="@style/TextStyle.INPUT"
                 android:layout_width="360dp"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:textColorHint="@color/white_grey"
-                android:background="@drawable/input_bg"/>
+                android:layout_height="48dp"
+                android:hint="@string/input_password"
+                android:inputType="textEmailAddress"
+                tools:ignore="TextContrastCheck"/>
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
@@ -130,11 +129,11 @@
         android:layout_marginBottom="20dp"
         android:layout_marginEnd="26dp"
         app:layout_constraintTop_toBottomOf="@id/input_login_layout"
-        app:layout_constraintBottom_toTopOf="@id/btn_login_loginscreen"
+        app:layout_constraintBottom_toTopOf="@id/btn_login"
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_login_loginscreen"
+        android:id="@+id/btn_login"
         style="@style/TextStyle.BUTTON"
         android:layout_width="360dp"
         android:layout_height="48dp"
@@ -159,7 +158,7 @@
         android:layout_marginBottom="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_login_loginscreen"
+        app:layout_constraintTop_toBottomOf="@id/btn_login"
         app:layout_constraintBottom_toTopOf="@id/btn_login_google">
 
         <View
