@@ -3,6 +3,7 @@
 package com.minervaai.summasphere.ui.onboarding
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -28,7 +29,6 @@ import com.minervaai.summasphere.ui.login.LoginActivity
 class OnboardingActivity : AppCompatActivity() {
     private lateinit var mViewPager: ViewPager2
     private lateinit var binding: ActivityOnboardingBinding
-
     private lateinit var auth : FirebaseAuth
     private lateinit var googleSignInClient : GoogleSignInClient
 
@@ -44,14 +44,24 @@ class OnboardingActivity : AppCompatActivity() {
             .requestEmail()
             .build()
 
+        // Periksa apakah pengguna sudah login menggunakan SharedPreferences
+        val sharedPreferences = getSharedPreferences("MyApp", Context.MODE_PRIVATE)
+        if (sharedPreferences.getBoolean("IsLoggedIn", false)) {
+            // Pengguna sudah login, langsung arahkan ke SummaryActivity
+            startActivity(Intent(this, SummaryActivity::class.java))
+            finish()
+        }
+
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
         binding.btnSignup.setOnClickListener {
             finish() // belum di intent
         }
+
         binding.btnGoogle.setOnClickListener {
             googleSignIn()
         }
+
         binding.btnLogin.setOnClickListener {
             val intent = Intent (this, LoginActivity ::class.java)
             startActivity(intent)
@@ -83,7 +93,12 @@ class OnboardingActivity : AppCompatActivity() {
         try {
             val account: GoogleSignInAccount? = task.getResult(ApiException::class.java)
             if (account != null) {
+                val sharedPreferences = getSharedPreferences("MyApp", Context.MODE_PRIVATE)
                 val cred = GoogleAuthProvider.getCredential(account.idToken, null)
+                with(sharedPreferences.edit()) {
+                    putBoolean("IsLoggedIn", true)
+                    apply()
+                }
                 auth.signInWithCredential(cred).addOnCompleteListener { signInTask ->
                     if (signInTask.isSuccessful) {
                         Log.d("GoogleSignIn", "signInWithCredential:success")
@@ -107,3 +122,12 @@ class OnboardingActivity : AppCompatActivity() {
         }
     }
 }
+
+//    private fun googleSignOut() {
+//        googleSignInClient.signOut().addOnCompleteListener {
+//            Toast.makeText(this, "Successfully sign out", Toast.LENGTH_SHORT).show()
+//            // intent to OnboardingActivity
+//            val intent = Intent(this, OnboardingActivity::class.java)
+//            startActivity(intent)
+//        }
+//    }
