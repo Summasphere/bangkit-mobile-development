@@ -9,7 +9,7 @@
     tools:context=".ui.resultsummarizer.ResultSummarizerActivity">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/historybar_layout"
+        android:id="@+id/summarizer_result_bar_layout"
         style="@style/AppBarStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,7 +24,7 @@
             android:padding="10dp">
 
             <androidx.appcompat.widget.Toolbar
-                android:id="@+id/history_toolbar"
+                android:id="@+id/summarizer_result_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_marginTop="2dp"
@@ -51,7 +51,7 @@
                 tools:ignore="RedundantDescriptionCheck,ImageContrastCheck" />
 
             <TextView
-                android:id="@+id/tv_history"
+                android:id="@+id/tv_summarizer_result"
                 style="@style/TextStyle.TITLE2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -80,29 +80,76 @@
                 tools:ignore="ImageContrastCheck,RedundantDescriptionCheck" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </com.google.android.material.appbar.AppBarLayout>
 
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/btn_cardview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/summarizer_result_bar_layout"
+        app:layout_constraintBottom_toTopOf="@id/summarizer_result_text"
+        app:cardBackgroundColor="@color/dark_blue"
+        app:cardCornerRadius="10dp">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/btn_tab_layout"
+            android:layout_width="360dp"
+            android:layout_height="48dp"
+            android:backgroundTint="@android:color/transparent"
+            android:layout_margin="1dp"
+            app:tabGravity="fill"
+            app:tabMode="fixed"
+            app:tabIndicatorColor="@android:color/transparent"
+            app:tabIndicatorHeight="0dp"
+            app:tabRippleColor="@android:color/transparent"
+            app:tabTextColor="@color/white_grey"
+            app:tabSelectedTextColor="@color/white_grey"
+            app:tabBackground="@drawable/tabs_selector"
+            app:tabTextAppearance="@style/CustomTabTextAppearance">
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/btn_original_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_original_text" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/btn_summarized_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_summarized_text" />
+        </com.google.android.material.tabs.TabLayout>
+    </com.google.android.material.card.MaterialCardView>
+
     <EditText
-        android:id="@+id/editTextInput"
-        android:layout_width="match_parent"
+        android:id="@+id/summarizer_result_text"
+        android:layout_width="360dp"
         android:layout_height="500dp"
-        android:background="@drawable/border_box"
+        android:background="@drawable/text_box_border"
         android:gravity="top"
-        android:hint="lorem ipsum dolor sit amet..."
         android:textColor="@color/black"
-        android:textColorHint="@color/black"
+        android:editable="false"
+        android:autofillHints="none"
         android:inputType="none"
+        android:hint="@android:string/autofill"
         android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:scrollbars="vertical"
         android:paddingStart="15dp"
         android:paddingTop="15dp"
         android:paddingEnd="15dp"
         android:paddingBottom="15dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
-        android:scrollbars="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/historybar_layout" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_cardview"
+        app:layout_constraintBottom_toTopOf="@id/btn_download_pdf"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="Deprecated" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_download_pdf"
@@ -112,14 +159,15 @@
         android:layout_gravity="center"
         android:layout_marginTop="24dp"
         android:background="@drawable/btn_primary"
-        android:text="@string/btn_dl_pdf"
+        android:text="@string/btn_download_pdf"
         app:backgroundTint="@null"
         app:icon="@drawable/ic_download"
         app:iconGravity="textStart"
         app:iconSize="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextInput"
+        app:layout_constraintTop_toBottomOf="@+id/summarizer_result_text"
+        app:layout_constraintBottom_toTopOf="@id/btn_copy_text"
         tools:ignore="VisualLintButtonSize,TextContrastCheck" />
 
     <com.google.android.material.button.MaterialButton

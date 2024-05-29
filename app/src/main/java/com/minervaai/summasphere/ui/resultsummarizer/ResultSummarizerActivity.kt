@@ -20,7 +20,7 @@ class ResultSummarizerActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_result_summarizer)
+        setContentView(R.layout.activity_summarizer_result)
 
         editTextInput = findViewById(R.id.editTextInput)
         btnCopyText = findViewById(R.id.btn_copy_text)

@@ -27,7 +27,7 @@
     <string name="input_email_login">Email</string>
     <string name="input_password_login">Password</string>
     <string name="btn_input_login">Login</string>
-    <string name="btn_dl_pdf">Download PDF</string>
+    <string name="btn_download_pdf">Download PDF</string>
     <string name="btn_login_google">Login with Google</string>
     <string name="tv_forgot_password">Forgot Password</string>
     <string name="logo_summasphere">Logo Summasphere</string>
@@ -61,5 +61,6 @@
     <string name="passwords_do_not_match">Passwords do not match</string>
     <string name="input_error">Incorrect email or password, please try again</string>
     <string name="fill_all_fields">Please fill in all required fields</string>
-    <string name="tv_logout">Logout</string>
+    <string name="btn_summarized_text">Summarized Text</string>
+    <string name="btn_original_text">Original Text</string>
 </resources>
