@@ -47,6 +47,9 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.firebase.auth)
+    implementation(libs.androidx.legacy.support.v4)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.fragment.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -54,15 +57,14 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.activity.ktx)
     implementation (libs.androidx.recyclerview)
-    // implementation (libs.androidx.viewpager2)
 
-    // splashscreen
+    // Splashscreen
     implementation(libs.androidx.core.splashscreen)
 
-    //onboarding animation
+    // Onboarding animation
     implementation (libs.lottie)
 
-    // retrofit
+    // Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
@@ -75,4 +77,10 @@ dependencies {
     // Google Play services
     implementation("com.google.android.gms:play-services-auth:21.1.1")
     implementation ("com.google.android.gms:play-services-auth:21.1.1")
+
+    // Navigation Graph
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.2")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.2")
+
+
 }
