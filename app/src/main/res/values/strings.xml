@@ -22,7 +22,7 @@
     <string name="tv_description_onboarding_2">Description</string>
     <string name="tv_title_onboarding_3">Title</string>
     <string name="tv_description_onboarding_3">Description</string>
-    <string name="iv_onboarding_logo">Onboarding images</string>
+    <string name="iv_logo">Summasphere Logo</string>
     <string name="default_web_client_id" translatable="false">579138698197-92am5np96brof03gdhe43dtq28k2qpvk.apps.googleusercontent.com</string>
     <string name="input_email_login">Email</string>
     <string name="input_password_login">Password</string>
@@ -31,7 +31,7 @@
     <string name="btn_login_google">Login with Google</string>
     <string name="tv_forgot_password">Forgot Password</string>
     <string name="logo_summasphere">Logo Summasphere</string>
-    <string name="divider_or">OR</string>
+    <string name="divider_or">or</string>
     <string name="tv_termsofuse">Terms of use</string>
     <string name="tv_privacypolicy">Privacy policy</string>
     <string name="footer_divider">|</string>
@@ -63,4 +63,12 @@
     <string name="fill_all_fields">Please fill in all required fields</string>
     <string name="btn_summarized_text">Summarized Text</string>
     <string name="btn_original_text">Original Text</string>
+    <string name="tv_home">Home</string>
+    <string name="tv_profile">Profile</string>
+    <string name="tv_logout">Log out</string>
+    <string name="iv_main">Documents illustration</string>
+    <string name="tv_description_home">Experience the efficiency of Summasphere,\n your ultimate productivity solution! \n Choose your preferred tools below to get started.</string>
+    <string name="btn_summarize_title">Summarizer</string>
+    <string name="btn_summarize_subtitle">Summarize your text and documents instantly</string>
+    <string name="btn_icon_summarize">Summarize icon with a light blue background</string>
 </resources>

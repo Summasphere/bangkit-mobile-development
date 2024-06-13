@@ -88,18 +88,24 @@
         <item name="android:textColor">@color/white_grey</item>
     </style>
 
-    <style name="TextStyle.LABEL_NAVBAR">
-        <item name="fontFamily">@font/montserrat_medium</item>
-        <item name="android:textSize">10sp</item>
-        <item name="android:gravity">center</item>
-        <item name="android:textColor">@color/white_grey</item>
-    </style>
-
     <style name="TextStyle.BUTTON">
         <item name="fontFamily">@font/montserrat_medium</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">14sp</item>
         <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/white_grey</item>
+    </style>
+
+    <style name="TextStyle.BUTTON_TITLE">
+        <item name="fontFamily">@font/montserrat_medium</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/white_grey</item>
+    </style>
+
+    <style name="TextStyle.BUTTON_SUBTITLE">
+        <item name="fontFamily">@font/montserrat_light</item>
+        <item name="android:textSize">12sp</item>
         <item name="android:textColor">@color/white_grey</item>
     </style>
 
@@ -132,5 +138,22 @@
         <item name="android:textAllCaps">false</item>
         <item name="android:textSize">14sp</item>
     </style>
+
+    <style name="BottomNavItemActiveIndicatorStyle">
+        <item name="android:color">@color/light_blue</item>
+    </style>
+
+    <style name="BottomNavigationTextAppearanceActive" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/montserrat_medium</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/light_blue</item>
+    </style>
+
+    <style name="BottomNavigationTextAppearanceInactive" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/montserrat_medium</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/white_grey</item>
+    </style>
+
 
 </resources>

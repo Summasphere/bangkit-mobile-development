@@ -1,4 +1,4 @@
-package com.minervaai.summasphere.ui.summarizer
+package com.minervaai.summasphere.ui.summarize
 
 import android.annotation.SuppressLint
 import android.content.Context

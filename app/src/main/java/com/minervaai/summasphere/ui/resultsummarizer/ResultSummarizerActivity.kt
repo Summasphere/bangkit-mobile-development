@@ -11,7 +11,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
 import com.minervaai.summasphere.R
-import com.minervaai.summasphere.ui.summarizer.SummaryActivity
+import com.minervaai.summasphere.ui.summarize.SummaryActivity
 
 class ResultSummarizerActivity : AppCompatActivity() {
     private lateinit var editTextInput: EditText

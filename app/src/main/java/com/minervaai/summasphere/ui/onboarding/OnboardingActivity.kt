@@ -21,7 +21,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.minervaai.summasphere.R
-import com.minervaai.summasphere.ui.summarizer.SummaryActivity
+import com.minervaai.summasphere.ui.summarize.SummaryActivity
 import com.minervaai.summasphere.databinding.ActivityOnboardingBinding
 import com.minervaai.summasphere.ui.login.LoginActivity
 

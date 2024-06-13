@@ -5,16 +5,38 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/main_gradient_bg"
     tools:context=".ui.main.MainActivity">
 
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/nav_graph"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation_view"/>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
+        android:id="@+id/bottom_navigation_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/nav_bottom_bg"
-        app:itemIconTint="@color/white"
-        app:itemTextColor="@color/white"
-        app:menu="@menu/tabs"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        android:backgroundTint="@color/dark_blue"
+        android:background="@color/dark_blue"
+        app:itemPaddingBottom="25dp"
+        app:itemIconTint="@color/white_grey"
+        app:itemTextColor="@color/white_grey"
+        app:itemTextAppearanceActive="@style/BottomNavigationTextAppearanceActive"
+        app:itemTextAppearanceInactive="@style/BottomNavigationTextAppearanceInactive"
+        app:itemActiveIndicatorStyle="@style/BottomNavItemActiveIndicatorStyle"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_navigation_menu"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="VisualLintBottomNav" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

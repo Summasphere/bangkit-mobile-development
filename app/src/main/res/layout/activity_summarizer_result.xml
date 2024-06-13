@@ -70,7 +70,7 @@
                 android:layout_height="48dp"
                 android:background="@null"
                 android:contentDescription="@string/btn_delete"
-                android:src="@drawable/baseline_share_24"
+                android:src="@drawable/ic_share"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1"

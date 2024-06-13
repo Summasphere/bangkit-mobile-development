@@ -7,6 +7,18 @@
     tools:context=".ui.onboarding.OnboardingActivity"
     android:background="@drawable/onboarding_bg">
 
+    <ImageView
+        android:id="@+id/iv_onboarding_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:contentDescription="@string/iv_onboarding_logo"
+        android:src="@drawable/onboarding_logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck" />
+
     <LinearLayout
         android:id="@+id/iv_onboarding"
         android:layout_width="match_parent"

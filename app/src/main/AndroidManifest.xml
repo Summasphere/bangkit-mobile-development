@@ -21,7 +21,7 @@
             android:name=".ui.main.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.summarizer.SummaryActivity"
+            android:name=".ui.summarize.SummaryActivity"
             android:exported="false" />
         <activity
             android:name=".ui.splashscreen.SplashScreenActivity"
