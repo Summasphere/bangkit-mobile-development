@@ -1,4 +1,4 @@
-package com.minervaai.summasphere.ui.data.response
+package com.minervaai.summasphere.data.response
 
 data class SignupResponse(
     val statusCode: Int,

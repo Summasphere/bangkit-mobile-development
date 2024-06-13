@@ -8,9 +8,9 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.minervaai.summasphere.R
 import com.minervaai.summasphere.databinding.ActivitySignupBinding
-import com.minervaai.summasphere.ui.data.request.SignupRequest
-import com.minervaai.summasphere.ui.data.response.SignupResponse
-import com.minervaai.summasphere.ui.data.retrofit.ApiConfig
+import com.minervaai.summasphere.data.request.SignupRequest
+import com.minervaai.summasphere.data.response.SignupResponse
+import com.minervaai.summasphere.data.retrofit.ApiConfig
 import com.minervaai.summasphere.ui.login.LoginActivity
 import com.minervaai.summasphere.ui.summarize.SummaryActivity
 import retrofit2.Call

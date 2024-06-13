@@ -8,9 +8,9 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.minervaai.summasphere.databinding.ActivityLoginBinding
-import com.minervaai.summasphere.ui.data.request.LoginRequest
-import com.minervaai.summasphere.ui.data.response.LoginResponse
-import com.minervaai.summasphere.ui.data.retrofit.ApiConfig
+import com.minervaai.summasphere.data.request.LoginRequest
+import com.minervaai.summasphere.data.response.LoginResponse
+import com.minervaai.summasphere.data.retrofit.ApiConfig
 import com.minervaai.summasphere.ui.signup.SignupActivity
 import com.minervaai.summasphere.ui.summarize.SummaryActivity
 import retrofit2.Call
