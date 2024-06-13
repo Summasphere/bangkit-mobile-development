@@ -11,7 +11,6 @@ import com.google.android.material.textfield.TextInputLayout
 import com.minervaai.summasphere.R
 
 class ConfirmPasswordInputEditText : AppCompatEditText, View.OnTouchListener {
-
     private var passwordEditText: PasswordInputEditText? = null
 
     constructor(context: Context) : super(context) {
@@ -52,6 +51,10 @@ class ConfirmPasswordInputEditText : AppCompatEditText, View.OnTouchListener {
             override fun afterTextChanged(p0: Editable?) {
             }
         })
+    }
+
+    fun linkPasswordEditText(editText: PasswordInputEditText) {
+        passwordEditText = editText
     }
 
     override fun onTouch(v: View?, event: MotionEvent?): Boolean {

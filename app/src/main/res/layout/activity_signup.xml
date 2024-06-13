@@ -126,7 +126,7 @@
             app:hintTextColor="@color/white_grey">
 
             <com.minervaai.summasphere.ui.customview.ConfirmPasswordInputEditText
-                android:id="@+id/input_confirmpassword_signup"
+                android:id="@+id/input_ConfirmPassword_signup"
                 style="@style/TextStyle.INPUT"
                 android:layout_width="360dp"
                 android:layout_height="48dp"
