@@ -85,7 +85,7 @@ class OnboardingActivity : AppCompatActivity() {
             manageResults(task)
         } else {
             Log.e("GoogleSignIn", "Google sign in failed 1")
-            Toast.makeText(this, "TOLONG ERRORRRRR.R.R..R.R.R..R.R", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Login failed, please try again", Toast.LENGTH_SHORT).show()
         }
     }
 

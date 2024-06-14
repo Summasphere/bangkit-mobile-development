@@ -67,8 +67,15 @@
     <string name="tv_profile">Profile</string>
     <string name="tv_logout">Log out</string>
     <string name="iv_main">Documents illustration</string>
-    <string name="tv_description_home">Experience the efficiency of Summasphere,\n your ultimate productivity solution! \n Choose your preferred tools below to get started.</string>
+    <string name="tv_description_home">Enjoy the efficiency of Summasphere,\n your ultimate productivity solution!</string>
     <string name="btn_summarize_title">Summarizer</string>
     <string name="btn_summarize_subtitle">Summarize your text and documents instantly</string>
     <string name="btn_icon_summarize">Summarize icon with a light blue background</string>
+    <string name="custom_btn_summarizer_img">Summarizer icon with light blue background</string>
+    <string name="custom_btn_summarizer_title">Summarizer</string>
+    <string name="custom_btn_summarizer_subtitle">Summarize your text and documents instantly</string>
+    <string name="custom_btn_analyzer_img">Analyzer icon with light blue background</string>
+    <string name="custom_btn_analyzer_title">Analyzer</string>
+    <string name="custom_btn_analyzer_subtitle">Analyze your documents to uncover powerful insights</string>
+    <string name="tv_description_home_2">Choose your preferred tools below to get started</string>
 </resources>

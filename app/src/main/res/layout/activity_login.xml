@@ -113,7 +113,7 @@
                 android:layout_width="360dp"
                 android:layout_height="48dp"
                 android:hint="@string/input_password"
-                android:inputType="textEmailAddress"
+                android:inputType="textPassword"
                 tools:ignore="TextContrastCheck"/>
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>

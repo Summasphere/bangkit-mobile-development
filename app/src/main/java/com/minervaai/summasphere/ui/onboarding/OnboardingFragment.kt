@@ -41,7 +41,6 @@ class OnboardingFragment : Fragment() {
     ): View {
         _binding = FragmentOnboardingBinding.inflate(inflater, container, false)
         val view = binding.root
-        ivOnboardingLogo = binding.ivOnboardingLogo
         tvTitle = binding.tvOnboardingTitle
         tvDescription = binding.tvOnboardingDescription
         ivOnboarding = binding.ivOnboarding

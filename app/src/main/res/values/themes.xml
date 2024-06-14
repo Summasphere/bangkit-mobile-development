@@ -106,6 +106,7 @@
     <style name="TextStyle.BUTTON_SUBTITLE">
         <item name="fontFamily">@font/montserrat_light</item>
         <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/white_grey</item>
     </style>
 

@@ -11,7 +11,7 @@
         android:id="@+id/iv_home_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_margin="40dp"
         android:contentDescription="@string/iv_logo"
         android:src="@drawable/onboarding_logo"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +23,7 @@
         android:id="@+id/iv_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_marginTop="50dp"
         android:contentDescription="@string/iv_main"
         android:src="@drawable/ic_main"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,11 +34,11 @@
 
     <TextView
         android:id="@+id/tv_home_description"
-        style="@style/TextStyle.VALUE"
+        style="@style/TextStyle.SUBTITLE"
         android:layout_width="360dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/iv_main"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="20dp"
         android:gravity="center"
         android:textColor="@color/white_grey"
         android:text="@string/tv_description_home"
@@ -47,17 +47,113 @@
         app:layout_constraintTop_toBottomOf="@id/iv_main"
         tools:ignore="TextContrastCheck" />
 
-    <customb
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/tv_home_description_2"
+        style="@style/TextStyle.VALUE"
+        android:layout_width="360dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_below="@id/iv_main"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:textColor="@color/white_grey"
+        android:text="@string/tv_description_home_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_home_description"
+        app:layout_constraintBottom_toTopOf="@id/custom_btn_summarizer"
+        tools:ignore="TextContrastCheck" />
+
+    <RelativeLayout
+        android:id="@+id/custom_btn_summarizer"
+        android:layout_width="360dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/custom_btn_bg"
+        tools:layout_editor_absoluteX="9dp"
+        tools:layout_editor_absoluteY="26dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:titleText="Summarizer"
-        app:subtitleText="Summarize your text and documents in an instant"
-        app:iconDrawable="@drawable/ic_summarizer" />
+        app:layout_constraintTop_toBottomOf="@id/tv_home_description_2">
 
+        <ImageView
+            android:id="@+id/custom_btn_summarizer_img"
+            android:layout_marginStart="20dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:contentDescription="@string/custom_btn_summarizer_img"
+            android:src="@drawable/ic_summarize_home"/>
+
+        <TextView
+            android:id="@+id/custom_btn_summarizer_title"
+            style="@style/TextStyle.BUTTON_TITLE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/custom_btn_summarizer_img"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="15dp"
+            android:text="@string/custom_btn_summarizer_title"/>
+
+        <TextView
+            android:id="@+id/custom_btn_summarizer_subtitle"
+            style="@style/TextStyle.BUTTON_SUBTITLE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/custom_btn_summarizer_title"
+            android:layout_toEndOf="@+id/custom_btn_summarizer_img"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="20dp"
+            android:text="@string/custom_btn_summarizer_subtitle"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/custom_btn_analyzer"
+        android:layout_width="360dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/custom_btn_bg"
+        tools:layout_editor_absoluteX="9dp"
+        tools:layout_editor_absoluteY="26dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/custom_btn_summarizer">
+
+        <ImageView
+            android:id="@+id/custom_btn_analyzer_img"
+            android:layout_marginStart="20dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:contentDescription="@string/custom_btn_analyzer_img"
+            android:src="@drawable/ic_analyze_home"/>
+
+        <TextView
+            android:id="@+id/custom_btn_analyzer_title"
+            style="@style/TextStyle.BUTTON_TITLE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/custom_btn_analyzer_img"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="15dp"
+            android:text="@string/custom_btn_analyzer_title"/>
+
+        <TextView
+            android:id="@+id/custom_btn_analyzer_subtitle"
+            style="@style/TextStyle.BUTTON_SUBTITLE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/custom_btn_analyzer_title"
+            android:layout_toEndOf="@+id/custom_btn_analyzer_img"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="20dp"
+            android:text="@string/custom_btn_analyzer_subtitle"/>
+    </RelativeLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
