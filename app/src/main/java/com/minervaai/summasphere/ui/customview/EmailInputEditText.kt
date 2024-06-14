@@ -63,5 +63,4 @@ class EmailInputEditText : AppCompatEditText, View.OnTouchListener  {
     private fun isValidEmail(email: CharSequence): Boolean {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
-
 }

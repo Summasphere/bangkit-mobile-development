@@ -1,5 +1,3 @@
-@file:Suppress("DEPRECATION")
-
 package com.minervaai.summasphere.ui.onboarding
 
 import android.app.Activity
@@ -21,9 +19,9 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.minervaai.summasphere.R
-import com.minervaai.summasphere.ui.summarize.SummaryActivity
 import com.minervaai.summasphere.databinding.ActivityOnboardingBinding
 import com.minervaai.summasphere.ui.login.LoginActivity
+import com.minervaai.summasphere.ui.summarize.SummaryActivity
 
 @Suppress("DEPRECATION")
 class OnboardingActivity : AppCompatActivity() {
@@ -45,7 +43,7 @@ class OnboardingActivity : AppCompatActivity() {
             .build()
 
         // Periksa apakah pengguna sudah login menggunakan SharedPreferences
-        val sharedPreferences = getSharedPreferences("MyApp", Context.MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
         if (sharedPreferences.getBoolean("IsLoggedIn", false)) {
             // Pengguna sudah login, langsung arahkan ke SummaryActivity
             startActivity(Intent(this, SummaryActivity::class.java))
@@ -93,7 +91,7 @@ class OnboardingActivity : AppCompatActivity() {
         try {
             val account: GoogleSignInAccount? = task.getResult(ApiException::class.java)
             if (account != null) {
-                val sharedPreferences = getSharedPreferences("MyApp", Context.MODE_PRIVATE)
+                val sharedPreferences = getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
                 val cred = GoogleAuthProvider.getCredential(account.idToken, null)
                 with(sharedPreferences.edit()) {
                     putBoolean("IsLoggedIn", true)
@@ -122,12 +120,3 @@ class OnboardingActivity : AppCompatActivity() {
         }
     }
 }
-
-//    private fun googleSignOut() {
-//        googleSignInClient.signOut().addOnCompleteListener {
-//            Toast.makeText(this, "Successfully sign out", Toast.LENGTH_SHORT).show()
-//            // intent to OnboardingActivity
-//            val intent = Intent(this, OnboardingActivity::class.java)
-//            startActivity(intent)
-//        }
-//    }

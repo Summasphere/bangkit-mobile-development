@@ -3,6 +3,7 @@ package com.minervaai.summasphere.ui.summarize
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -33,6 +34,7 @@ class SummaryActivity : AppCompatActivity() {
     private lateinit var btnLogoutGoogle: Button
     private lateinit var txtViewSummary: TextView
     private lateinit var googleSignInClient: GoogleSignInClient
+    private lateinit var sharedPreferences: SharedPreferences
 
     val client = OkHttpClient()
     val reqBody = JSONObject()
@@ -45,17 +47,17 @@ class SummaryActivity : AppCompatActivity() {
         text = findViewById(R.id.editTextInput)
         btnSumaary = findViewById(R.id.buttonSummarize)
         btnLogoutGoogle = findViewById(R.id.buttonLogout)
+        sharedPreferences = getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
 
-        // Inisialisasi GoogleSignInClient
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
             .build()
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
-        // Listener untuk tombol logout
         btnLogoutGoogle.setOnClickListener {
             googleLogout()
+            emailPasswordLogout()
         }
 
         btnSumaary.setOnClickListener {
@@ -106,17 +108,83 @@ class SummaryActivity : AppCompatActivity() {
 
     private fun googleLogout() {
         googleSignInClient.signOut().addOnCompleteListener(this) {
-            // Hapus status login dari SharedPreferences
-            val sharedPreferences = getSharedPreferences("MyApp", Context.MODE_PRIVATE)
-            with(sharedPreferences.edit()) {
-                putBoolean("IsLoggedIn", false)
-                apply()
-            }
-
-            // Arahkan ke OnboardingActivity
-            val intent = Intent(this, OnboardingActivity::class.java)
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
-            startActivity(intent)
+            clearSession()
+            navigateToOnboarding()
+            Toast.makeText(this, "Logged out from Google", Toast.LENGTH_SHORT).show()
         }
     }
+
+    private fun emailPasswordLogout() {
+        val token = sharedPreferences.getString("token", null)
+        if (token != null) {
+            val request = Request.Builder()
+                .url("https://inilho.its.ac.id/summasphere/api/v1/auth/logout")
+                .header("Authorization", "Bearer $token")
+                .post(RequestBody.create(null, byteArrayOf()))
+                .build()
+            client.newCall(request).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
+                    e.printStackTrace()
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+                    if (response.isSuccessful) {
+                        clearSession()
+                        runOnUiThread {
+                            Toast.makeText(applicationContext, "Logged out successfully", Toast.LENGTH_SHORT).show()
+                            navigateToOnboarding()
+                        }
+                    }
+                }
+            })
+        }
+    }
+
+    private fun clearSession() {
+        with(sharedPreferences.edit()) {
+            remove("email")
+            remove("password")
+            remove("token")
+            putBoolean("IsLoggedIn", false)
+            apply()
+        }
+    }
+
+    private fun navigateToOnboarding() {
+        val intent = Intent(this, OnboardingActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+        startActivity(intent)
+    }
+
+//    private fun googleLogout() {
+//        googleSignInClient.signOut().addOnCompleteListener(this) {
+//            Toast.makeText(this, "Logged out from Google", Toast.LENGTH_SHORT).show()
+//            val sharedPreferences = getSharedPreferences("MyApp", Context.MODE_PRIVATE)
+//            with(sharedPreferences.edit()) {
+//                putBoolean("IsLoggedIn", false)
+//                apply()
+//            }
+//        }
+//    }
+//
+//    private fun navigateToLogin() {
+//        val intent = Intent(this, OnboardingActivity::class.java)
+//        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+//        startActivity(intent)
+//        finish()
+//    }
+
+//    private fun googleLogout() {
+//        googleSignInClient.signOut().addOnCompleteListener(this) {
+//            val sharedPreferences = getSharedPreferences("MyApp", Context.MODE_PRIVATE)
+//            with(sharedPreferences.edit()) {
+//                putBoolean("IsLoggedIn", false)
+//                apply()
+//            }
+//
+//            val intent = Intent(this, OnboardingActivity::class.java)
+//            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+//            startActivity(intent)
+//        }
+//    }
 }
