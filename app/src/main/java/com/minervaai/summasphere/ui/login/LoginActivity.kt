@@ -11,6 +11,7 @@ import com.minervaai.summasphere.databinding.ActivityLoginBinding
 import com.minervaai.summasphere.data.request.LoginRequest
 import com.minervaai.summasphere.data.response.LoginResponse
 import com.minervaai.summasphere.data.retrofit.ApiConfig
+import com.minervaai.summasphere.ui.main.MainActivity
 import com.minervaai.summasphere.ui.signup.SignupActivity
 import com.minervaai.summasphere.ui.summarize.SummaryActivity
 import retrofit2.Call

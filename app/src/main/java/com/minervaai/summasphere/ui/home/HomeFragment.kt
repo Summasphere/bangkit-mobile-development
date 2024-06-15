@@ -12,11 +12,6 @@ import com.minervaai.summasphere.ui.analyze.AnalyzeActivity
 import com.minervaai.summasphere.ui.summarize.SummaryActivity
 
 class HomeFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = HomeFragment()
-    }
-
     private val viewModel: HomeViewModel by viewModels()
     private lateinit var binding: FragmentHomeBinding
 
@@ -40,5 +35,9 @@ class HomeFragment : Fragment() {
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    companion object {
+        fun newInstance() = HomeFragment()
     }
 }

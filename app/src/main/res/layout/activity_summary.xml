@@ -29,9 +29,9 @@
 
     <!-- Text Input Area -->
     <EditText
-        android:id="@+id/editTextInput"
+        android:id="@+id/editTextInputText"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="350dp"
         android:layout_below="@+id/seekBarLength"
         android:layout_marginBottom="16dp"
         android:background="@drawable/text_box_border"
@@ -46,12 +46,51 @@
         android:paddingBottom="10dp"
         android:scrollbars="vertical" />
 
+    <!-- Text Input Area -->
+    <EditText
+        android:id="@+id/editTextInputURL"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_below="@+id/editTextInputText"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/text_box_border"
+        android:gravity="top"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:hint="@string/input_your_url"
+        android:inputType="textMultiLine"
+        android:paddingStart="10dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="10dp"
+        android:scrollbars="vertical"
+        tools:ignore="TextFields" />
+
+<!--    &lt;!&ndash; Text Input Area &ndash;&gt;-->
+<!--    <EditText-->
+<!--        android:id="@+id/editTextInputModel"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="70dp"-->
+<!--        android:layout_below="@+id/editTextInputURL"-->
+<!--        android:layout_marginBottom="16dp"-->
+<!--        android:background="@drawable/text_box_border"-->
+<!--        android:gravity="top"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textColorHint="@color/black"-->
+<!--        android:hint="@string/input_your_model"-->
+<!--        android:inputType="textMultiLine"-->
+<!--        android:paddingStart="10dp"-->
+<!--        android:paddingTop="10dp"-->
+<!--        android:paddingEnd="10dp"-->
+<!--        android:paddingBottom="10dp"-->
+<!--        android:scrollbars="vertical" />-->
+
     <!-- Summarize Button -->
     <Button
         android:id="@+id/buttonSummarize"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextInput"
+        android:layout_below="@id/editTextInputURL"
         android:layout_marginTop="8dp"
         android:layout_centerHorizontal="true"
         android:text="@string/summarize" />

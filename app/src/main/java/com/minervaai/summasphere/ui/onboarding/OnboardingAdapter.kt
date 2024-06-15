@@ -17,7 +17,7 @@ class OnboardingAdapter(
             0 -> OnboardingFragment.newInstance(
                 context.resources.getString(R.string.tv_title_onboarding_1),
                 context.resources.getString(R.string.tv_description_onboarding_1),
-                R.raw.lottie_productive
+                R.raw.lottie_document
             )
             1 -> OnboardingFragment.newInstance(
                 context.resources.getString(R.string.tv_title_onboarding_2),
@@ -27,7 +27,7 @@ class OnboardingAdapter(
             else -> OnboardingFragment.newInstance(
                 context.resources.getString(R.string.tv_title_onboarding_3),
                 context.resources.getString(R.string.tv_description_onboarding_3),
-                R.raw.lottie_analyze
+                R.raw.lottie_document
             )
         }
     }

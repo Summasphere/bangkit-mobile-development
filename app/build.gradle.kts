@@ -82,5 +82,7 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
 
+    implementation("com.mikepenz:multiplatform-markdown-renderer:0.21.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-html-jvm:0.7.3")
 
 }

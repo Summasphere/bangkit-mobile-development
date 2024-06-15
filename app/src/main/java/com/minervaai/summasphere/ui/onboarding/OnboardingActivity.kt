@@ -61,7 +61,7 @@ class OnboardingActivity : AppCompatActivity() {
         }
 
         binding.btnLogin.setOnClickListener {
-            val intent = Intent (this, LoginActivity ::class.java)
+            val intent = Intent (this, LoginActivity::class.java)
             startActivity(intent)
         }
 
@@ -69,7 +69,6 @@ class OnboardingActivity : AppCompatActivity() {
         mViewPager.adapter = OnboardingAdapter(this, this)
         TabLayoutMediator(binding.pageIndicator, mViewPager) { _, _ -> }.attach()
         mViewPager.offscreenPageLimit = 1
-
     }
 
     private fun googleSignIn() {

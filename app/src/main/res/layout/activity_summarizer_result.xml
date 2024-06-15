@@ -90,7 +90,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/summarizer_result_bar_layout"
-        app:layout_constraintBottom_toTopOf="@id/summarizer_result_text"
         app:cardBackgroundColor="@color/dark_blue"
         app:cardCornerRadius="10dp">
 

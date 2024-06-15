@@ -94,6 +94,7 @@
                 style="@style/TextStyle.INPUT"
                 android:layout_width="360dp"
                 android:layout_height="48dp"
+                android:textColor="@color/white"
                 android:hint="@string/input_email"
                 android:inputType="textEmailAddress"
                 tools:ignore="TextContrastCheck"/>
@@ -112,6 +113,7 @@
                 style="@style/TextStyle.INPUT"
                 android:layout_width="360dp"
                 android:layout_height="48dp"
+                android:textColor="@color/white"
                 android:hint="@string/input_password"
                 android:inputType="textPassword"
                 tools:ignore="TextContrastCheck"/>
@@ -130,6 +132,7 @@
                 style="@style/TextStyle.INPUT"
                 android:layout_width="360dp"
                 android:layout_height="48dp"
+                android:textColor="@color/white"
                 android:hint="@string/input_confirmpassword"
                 android:inputType="textPassword"
                 tools:ignore="TextContrastCheck"/>

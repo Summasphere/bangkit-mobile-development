@@ -14,7 +14,6 @@ import androidx.core.animation.doOnEnd
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.minervaai.summasphere.ui.onboarding.OnboardingActivity
 
-
 @SuppressLint("CustomSplashScreen")
 class SplashScreenActivity : AppCompatActivity() {
     private val viewModel by viewModels<SplashViewModel>()

@@ -100,4 +100,6 @@
     <string name="iv_help_support">Help and Support icon</string>
     <string name="tv_profile_general">General</string>
     <string name="tv_analyzer">Analyzer</string>
+    <string name="upload">Upload</string>
+    <string name="input_your_url">Input Your URL…</string>
 </resources>
