@@ -1,13 +1,13 @@
 package com.minervaai.summasphere.ui.main
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI
 import com.minervaai.summasphere.R
 import com.minervaai.summasphere.databinding.ActivityMainBinding
 
+@Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
@@ -15,5 +15,29 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val bottomNavigationView = binding.bottomNavigationView
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
+
+        NavigationUI.setupWithNavController(bottomNavigationView, navController)
+
+        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
+            when(item.itemId) {
+                R.id.home_fragment -> {
+                    navController.navigate(R.id.home_fragment)
+                    true
+                }
+                R.id.history_fragment -> {
+                    navController.navigate(R.id.history_fragment)
+                    true
+                }
+                R.id.profile_fragment -> {
+                    navController.navigate(R.id.profile_fragment)
+                    true
+                }
+                else -> false
+            }
+        }
     }
 }
