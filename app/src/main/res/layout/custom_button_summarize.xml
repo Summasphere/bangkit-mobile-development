@@ -4,7 +4,7 @@
     android:layout_width="360dp"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:background="@drawable/btn_background_home"
+    android:background="@drawable/btn_bg_home"
     android:padding="20dp">
 
     <ImageView

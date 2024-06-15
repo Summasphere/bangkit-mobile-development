@@ -127,7 +127,7 @@
     <EditText
         android:id="@+id/summarizer_result_text"
         android:layout_width="360dp"
-        android:layout_height="500dp"
+        android:layout_height="420dp"
         android:background="@drawable/text_box_border"
         android:gravity="top"
         android:textColor="@color/black"

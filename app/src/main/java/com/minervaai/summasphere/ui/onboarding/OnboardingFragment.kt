@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.airbnb.lottie.LottieAnimationView
@@ -14,7 +13,6 @@ class OnboardingFragment : Fragment() {
     private lateinit var title: String
     private lateinit var description: String
     private var imageResource = 0
-    private lateinit var ivOnboardingLogo: ImageView
     private lateinit var tvTitle: TextView
     private lateinit var tvDescription: TextView
     private lateinit var ivOnboarding: LottieAnimationView

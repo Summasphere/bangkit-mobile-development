@@ -65,22 +65,22 @@ dependencies {
     implementation (libs.lottie)
 
     // Retrofit
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
 
     // Firebase BoM
-    implementation(platform("com.google.firebase:firebase-bom:33.0.0"))
+    implementation(platform(libs.firebase.bom))
 
     // Firebase Auth
-    implementation("com.google.firebase:firebase-auth")
+    implementation(libs.google.firebase.auth)
 
     // Google Play services
-    implementation("com.google.android.gms:play-services-auth:21.1.1")
-    implementation ("com.google.android.gms:play-services-auth:21.1.1")
+    implementation(libs.gms.play.services.auth)
+    implementation (libs.gms.play.services.auth)
 
     // Navigation Graph
-    implementation("androidx.navigation:navigation-fragment-ktx:2.7.2")
-    implementation("androidx.navigation:navigation-ui-ktx:2.7.2")
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
 
 
 }

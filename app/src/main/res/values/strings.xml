@@ -78,4 +78,26 @@
     <string name="custom_btn_analyzer_title">Analyzer</string>
     <string name="custom_btn_analyzer_subtitle">Analyze your documents to uncover powerful insights</string>
     <string name="tv_description_home_2">Choose your preferred tools below to get started</string>
+    <string name="iv_onboarding_logo">Summasphere logo</string>
+    <string name="nohistory">No history icon</string>
+    <string name="iv_user_profile">User profile icon</string>
+    <string name="tv_profile_email">Email</string>
+    <string name="tv_user_email">example@email.com</string>
+    <string name="tv_profile_account">Account</string>
+    <string name="iv_change_password">Change password icon</string>
+    <string name="tv_change_password">Change Password</string>
+    <string name="iv_profile_arrow">Arrow icon</string>
+    <string name="iv_manage_account">Manage account icon</string>
+    <string name="tv_manage_account">Manage Account</string>
+    <string name="tv_profile_rate">Help us be better</string>
+    <string name="iv_rate">Rate us</string>
+    <string name="tv_rate">Rate us</string>
+    <string name="tv_privacy_policy">Privacy and Policy</string>
+    <string name="iv_privacy_policy">Privacy and Policy icon</string>
+    <string name="iv_terms_conditions">Terms and Conditions icon</string>
+    <string name="tv_terms_conditions">Terms and Conditions</string>
+    <string name="tv_help_support">Help and Support</string>
+    <string name="iv_help_support">Help and Support icon</string>
+    <string name="tv_profile_general">General</string>
+    <string name="tv_analyzer">Analyzer</string>
 </resources>
