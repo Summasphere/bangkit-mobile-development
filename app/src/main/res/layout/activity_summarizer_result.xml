@@ -82,54 +82,14 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/btn_cardview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/summarizer_result_bar_layout"
-        app:cardBackgroundColor="@color/dark_blue"
-        app:cardCornerRadius="10dp">
-
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/btn_tab_layout"
-            android:layout_width="360dp"
-            android:layout_height="48dp"
-            android:backgroundTint="@android:color/transparent"
-            android:layout_margin="1dp"
-            app:tabGravity="fill"
-            app:tabMode="fixed"
-            app:tabIndicatorColor="@android:color/transparent"
-            app:tabIndicatorHeight="0dp"
-            app:tabRippleColor="@android:color/transparent"
-            app:tabTextColor="@color/white_grey"
-            app:tabSelectedTextColor="@color/white_grey"
-            app:tabBackground="@drawable/tabs_selector"
-            app:tabTextAppearance="@style/CustomTabTextAppearance">
-
-            <com.google.android.material.tabs.TabItem
-                android:id="@+id/btn_original_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/btn_original_text" />
-
-            <com.google.android.material.tabs.TabItem
-                android:id="@+id/btn_summarized_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/btn_summarized_text" />
-        </com.google.android.material.tabs.TabLayout>
-    </com.google.android.material.card.MaterialCardView>
 
     <EditText
         android:id="@+id/summarizer_result_text"
         android:layout_width="360dp"
         android:layout_height="420dp"
-        android:background="@drawable/text_box_border"
+        android:background="@drawable/custom_bg"
         android:gravity="top"
-        android:textColor="@color/black"
+        android:textColor="@color/black_grey"
         android:editable="false"
         android:autofillHints="none"
         android:inputType="none"
@@ -144,7 +104,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/btn_cardview"
+        app:layout_constraintTop_toBottomOf="@id/summarizer_result_bar_layout"
         app:layout_constraintBottom_toTopOf="@id/btn_download_pdf"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

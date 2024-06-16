@@ -120,7 +120,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/input_confirmpassword_signup_layout"
+            android:id="@+id/input_confirm_password_signup_layout"
             style="@style/CustomTextInputLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -128,12 +128,12 @@
             app:hintTextColor="@color/white_grey">
 
             <com.minervaai.summasphere.ui.customview.ConfirmPasswordInputEditText
-                android:id="@+id/input_ConfirmPassword_signup"
+                android:id="@+id/input_confirm_password_signup"
                 style="@style/TextStyle.INPUT"
                 android:layout_width="360dp"
                 android:layout_height="48dp"
                 android:textColor="@color/white"
-                android:hint="@string/input_confirmpassword"
+                android:hint="@string/input_confirm_password"
                 android:inputType="textPassword"
                 tools:ignore="TextContrastCheck"/>
         </com.google.android.material.textfield.TextInputLayout>
@@ -147,6 +147,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="15dp"
         android:background="@drawable/btn_primary"
+        android:contentDescription="@string/btn_signup"
         android:text="@string/btn_signup"
         app:backgroundTint="@null"
         app:layout_constraintTop_toBottomOf="@id/input_signup_layout"

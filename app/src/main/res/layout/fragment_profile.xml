@@ -69,8 +69,8 @@
             android:background="@drawable/profile_info_bg"
             android:padding="16dp"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="20dp"
-            android:layout_marginStart="20dp"
+            android:layout_marginBottom="18dp"
+            android:layout_marginStart="18dp"
             android:layout_marginEnd="20dp">
 
             <ImageView
@@ -165,7 +165,7 @@
             android:layout_marginEnd="20dp"/>
 
         <LinearLayout
-            android:id="@+id/layout_manage_account"
+            android:id="@+id/layout_log_out"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/selectableItemBackground"
@@ -175,21 +175,21 @@
             android:padding="16dp">
 
             <ImageView
-                android:id="@+id/iv_manage_account"
+                android:id="@+id/iv_log_out"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:contentDescription="@string/iv_manage_account"
-                android:src="@drawable/ic_manage_account" />
+                android:contentDescription="@string/iv_log_out"
+                android:src="@drawable/ic_log_out" />
 
             <TextView
-                android:id="@+id/tv_manage_account"
+                android:id="@+id/tv_log_out"
                 style="@style/TextStyle.LABEL"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_weight="1"
                 android:gravity="start"
-                android:text="@string/tv_manage_account"
+                android:text="@string/tv_log_out"
                 android:textColor="@color/white" />
 
             <ImageView
