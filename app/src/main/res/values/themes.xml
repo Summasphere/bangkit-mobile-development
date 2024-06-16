@@ -130,6 +130,13 @@
         <item name="fontFamily">@font/montserrat_regular</item>
     </style>
 
+    <style name="TextStyle.EDIT_TEXT">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColorHint">@color/dark_grey</item>
+        <item name="fontFamily">@font/montserrat_regular</item>
+    </style>
+
     <style name="AppBarStyle">
         <item name="android:backgroundTint">@android:color/transparent</item>
     </style>

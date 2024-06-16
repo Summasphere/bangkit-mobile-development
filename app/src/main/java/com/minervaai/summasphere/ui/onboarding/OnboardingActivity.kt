@@ -21,7 +21,7 @@ import com.google.firebase.auth.GoogleAuthProvider
 import com.minervaai.summasphere.R
 import com.minervaai.summasphere.databinding.ActivityOnboardingBinding
 import com.minervaai.summasphere.ui.login.LoginActivity
-import com.minervaai.summasphere.ui.summarize.SummaryActivity
+import com.minervaai.summasphere.ui.summarizer.SummarizerActivity
 
 @Suppress("DEPRECATION")
 class OnboardingActivity : AppCompatActivity() {
@@ -46,7 +46,7 @@ class OnboardingActivity : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
         if (sharedPreferences.getBoolean("IsLoggedIn", false)) {
             // Pengguna sudah login, langsung arahkan ke SummaryActivity
-            startActivity(Intent(this, SummaryActivity::class.java))
+            startActivity(Intent(this, SummarizerActivity::class.java))
             finish()
         }
 
@@ -99,7 +99,7 @@ class OnboardingActivity : AppCompatActivity() {
                 auth.signInWithCredential(cred).addOnCompleteListener { signInTask ->
                     if (signInTask.isSuccessful) {
                         Log.d("GoogleSignIn", "signInWithCredential:success")
-                        Intent(this, SummaryActivity::class.java).also {
+                        Intent(this, SummarizerActivity::class.java).also {
                             startActivity(it)
                         }
                         Toast.makeText(this, "Successfully login", Toast.LENGTH_SHORT).show()

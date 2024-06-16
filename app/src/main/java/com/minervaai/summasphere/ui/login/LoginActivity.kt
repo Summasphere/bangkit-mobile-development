@@ -11,9 +11,8 @@ import com.minervaai.summasphere.databinding.ActivityLoginBinding
 import com.minervaai.summasphere.data.request.LoginRequest
 import com.minervaai.summasphere.data.response.LoginResponse
 import com.minervaai.summasphere.data.retrofit.ApiConfig
-import com.minervaai.summasphere.ui.main.MainActivity
 import com.minervaai.summasphere.ui.signup.SignupActivity
-import com.minervaai.summasphere.ui.summarize.SummaryActivity
+import com.minervaai.summasphere.ui.summarizer.SummarizerActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -93,7 +92,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun navigateToHome() {
-        startActivity(Intent(this, SummaryActivity::class.java))
+        startActivity(Intent(this, SummarizerActivity::class.java))
         finish()
     }
 

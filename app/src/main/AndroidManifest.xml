@@ -21,7 +21,7 @@
             android:name=".ui.onboarding.OnboardingActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.summarize.SummaryActivity"
+            android:name=".ui.summarizer.SummarizerActivity"
             android:exported="false" />
         <activity
             android:name=".ui.login.LoginActivity"

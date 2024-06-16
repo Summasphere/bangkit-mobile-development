@@ -1,4 +1,4 @@
-package com.minervaai.summasphere.ui.analyze
+package com.minervaai.summasphere.ui.analyzer
 
 import android.app.Activity
 import android.content.Intent
@@ -10,13 +10,13 @@ import androidx.appcompat.app.AppCompatActivity
 import com.minervaai.summasphere.R
 import com.minervaai.summasphere.databinding.ActivityAnalyzeBinding
 
-class AnalyzeActivity : AppCompatActivity() {
+class AnalyzerActivity : AppCompatActivity() {
     private val PICK_DOC_REQUEST = 1
     private lateinit var binding: ActivityAnalyzeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_analyze)
+        setContentView(R.layout.activity_analyzer)
 
         binding.uploadSection.setOnClickListener {
             openFilePicker()

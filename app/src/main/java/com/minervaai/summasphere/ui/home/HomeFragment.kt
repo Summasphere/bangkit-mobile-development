@@ -8,8 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.minervaai.summasphere.databinding.FragmentHomeBinding
-import com.minervaai.summasphere.ui.analyze.AnalyzeActivity
-import com.minervaai.summasphere.ui.summarize.SummaryActivity
+import com.minervaai.summasphere.ui.analyzer.AnalyzerActivity
+import com.minervaai.summasphere.ui.summarizer.SummarizerActivity
 
 class HomeFragment : Fragment() {
     private val viewModel: HomeViewModel by viewModels()
@@ -19,12 +19,12 @@ class HomeFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         binding.customBtnSummarizer.setOnClickListener {
-            val intent = Intent(requireContext(), SummaryActivity::class.java)
+            val intent = Intent(requireContext(), SummarizerActivity::class.java)
             startActivity(intent)
         }
 
         binding.customBtnAnalyzer.setOnClickListener {
-            val intent = Intent(requireContext(), AnalyzeActivity::class.java)
+            val intent = Intent(requireContext(), AnalyzerActivity::class.java)
             startActivity(intent)
         }
     }

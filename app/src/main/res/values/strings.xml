@@ -1,11 +1,6 @@
 <resources>
     <string name="app_name">Summasphere</string>
-    <string name="summarizer">Summarizer</string>
-    <string name="analyzer">Analyzer</string>
-    <string name="input_your_text">Input Your Text…</string>
-    <string name="summary_length">Summary Length</string>
-    <string name="summarize">Summarize</string>
-    <string name="_0_2000">0/2000</string>
+    <string name="btn_summarize">Summarize</string>
     <string name="btn_login">Login</string>
     <string name="btn_copy_text">Copy Text</string>
     <string name="btn_signup">Sign up Free</string>
@@ -40,10 +35,10 @@
     <string name="tv_dont_have_account">Don\'t have an account?</string>
     <string name="tv_signup">Sign up</string>
     <string name="tv_login_logo">Summasphere logo</string>
-    <string name="back_btn">Back button</string>
+    <string name="back_btn">Back</string>
     <string name="tv_history">History</string>
     <string name="tv_summarizer_result">Summarizer Result</string>
-    <string name="btn_delete">Delete button</string>
+    <string name="btn_delete">Delete</string>
     <string name="search_text">Search</string>
     <string name="tv_create_your">Create your</string>
     <string name="tv_account">account</string>
@@ -51,8 +46,7 @@
     <string name="tv_login">Login</string>
     <string name="input_email">Email</string>
     <string name="input_password">Password</string>
-    <string name="input_confirmpassword">Confirm password</string>
-    <string name="btn_signup_">Sign up</string>
+    <string name="input_confirm_password">Confirm password</string>
     <string name="email_required">Required</string>
     <string name="invalid_email">Invalid email address</string>
     <string name="password_required">Required</string>
@@ -87,8 +81,8 @@
     <string name="iv_change_password">Change password icon</string>
     <string name="tv_change_password">Change Password</string>
     <string name="iv_profile_arrow">Arrow icon</string>
-    <string name="iv_manage_account">Manage account icon</string>
-    <string name="tv_manage_account">Manage Account</string>
+    <string name="iv_log_out">Log out icon</string>
+    <string name="tv_log_out">Log out</string>
     <string name="tv_profile_rate">Help us be better</string>
     <string name="iv_rate">Rate us</string>
     <string name="tv_rate">Rate us</string>
@@ -102,4 +96,23 @@
     <string name="tv_analyzer">Analyzer</string>
     <string name="upload">Upload</string>
     <string name="input_your_url">Input Your URL…</string>
+    <string name="tv_analyzer_result">Analyzer Result</string>
+    <string name="btn_analyzer_text">Analyzed Text</string>
+    <string name="preview_iv">Preview image view</string>
+    <string name="tv_wordcloud">Most Frequently Used Words Identified by \n Word Clouds</string>
+    <string name="tv_topics">Visualization of The Topics Distribution</string>
+    <string name="btn_analyze">Analyze</string>
+    <string name="custom_btn_upload_img">Upload file icon with blue stroke</string>
+    <string name="custom_btn_upload_title">Tap to upload your file</string>
+    <string name="custom_btn_upload_subtitle">Upload file in PDF, CSV, Txt format</string>
+    <string name="input_url">Input the URL of the document or text</string>
+    <string name="tv_summarizer">Summarizer</string>
+    <string name="tv_summary_length">Summary Length</string>
+    <string name="input_text">Input text to summarize</string>
+    <string name="btn_clear_text">Clear text</string>
+    <string name="summary_length_slider">"Summary length slider to determine the length of the summarized text "</string>
+    <string name="tv_change_password_description">Change your password frequently to keep your account secure. Use a strong password for worry-free access.</string>
+    <string name="input_change_password">New password</string>
+    <string name="input_confirm_new_password">Confirm new password</string>
+    <string name="btn_change_password">Change Password</string>
 </resources>

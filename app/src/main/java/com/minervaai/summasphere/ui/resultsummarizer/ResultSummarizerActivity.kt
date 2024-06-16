@@ -5,14 +5,10 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Intent
 import android.os.Bundle
-import android.widget.EditText
-import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.button.MaterialButton
-import com.minervaai.summasphere.R
 import com.minervaai.summasphere.databinding.ActivitySummarizerResultBinding
-import com.minervaai.summasphere.ui.summarize.SummaryActivity
+import com.minervaai.summasphere.ui.summarizer.SummarizerActivity
 
 class ResultSummarizerActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySummarizerResultBinding
@@ -36,7 +32,7 @@ class ResultSummarizerActivity : AppCompatActivity() {
         }
 
         binding.btnBack.setOnClickListener {
-            val intent = Intent(this, SummaryActivity::class.java)
+            val intent = Intent(this, SummarizerActivity::class.java)
             startActivity(intent)
             finish()
         }

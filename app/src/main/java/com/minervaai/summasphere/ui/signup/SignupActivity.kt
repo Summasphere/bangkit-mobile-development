@@ -12,7 +12,7 @@ import com.minervaai.summasphere.data.request.SignupRequest
 import com.minervaai.summasphere.data.response.SignupResponse
 import com.minervaai.summasphere.data.retrofit.ApiConfig
 import com.minervaai.summasphere.ui.login.LoginActivity
-import com.minervaai.summasphere.ui.summarize.SummaryActivity
+import com.minervaai.summasphere.ui.summarizer.SummarizerActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -84,7 +84,7 @@ class SignupActivity : AppCompatActivity() {
     }
 
     private fun navigateToHome() {
-        startActivity(Intent(this, SummaryActivity::class.java))
+        startActivity(Intent(this, SummarizerActivity::class.java))
         finish()
     }
 
