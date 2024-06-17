@@ -98,4 +98,10 @@ dependencies {
     implementation("com.mikepenz:multiplatform-markdown-renderer:0.21.0")
     implementation("org.jetbrains.kotlinx:kotlinx-html-jvm:0.7.3")
 
+    // PDF
+    implementation ("com.itextpdf:itext7-core:7.1.16")
+    implementation ("com.itextpdf:itext7-fonts:7.2.0")
+    implementation ("com.itextpdf:itext7-layout:7.2.0")
+
+
 }

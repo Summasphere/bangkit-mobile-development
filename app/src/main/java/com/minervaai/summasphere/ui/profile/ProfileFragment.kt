@@ -13,7 +13,7 @@ import android.widget.Toast
 import androidx.fragment.app.viewModels
 import com.minervaai.summasphere.databinding.FragmentProfileBinding
 import com.minervaai.summasphere.helper.GoogleLoginHelper
-import com.minervaai.summasphere.helper.ProfileFragmentViewModelFactory
+import com.minervaai.summasphere.helper.ProfileViewModelFactory
 import com.minervaai.summasphere.helper.ResultState
 import com.minervaai.summasphere.ui.onboarding.OnboardingActivity
 
@@ -22,7 +22,7 @@ class ProfileFragment : Fragment() {
     private lateinit var binding: FragmentProfileBinding
     private lateinit var sharedPreferences: SharedPreferences
     private val viewModel: ProfileFragmentViewModel by viewModels {
-        ProfileFragmentViewModelFactory(requireContext())
+        ProfileViewModelFactory(requireContext())
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

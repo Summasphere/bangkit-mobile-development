@@ -52,6 +52,10 @@ class SummarizerActivity : AppCompatActivity() {
 //            emailPasswordLogout()
 //        }
 
+        binding.btnClearText.setOnClickListener {
+            binding.inputText.setText("")
+        }
+
         binding.btnSummarize.setOnClickListener {
             val userInputText = binding.inputText.text.toString()
             val userInputURL = binding.inputText.text.toString()
@@ -69,6 +73,7 @@ class SummarizerActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
     }
 
     private fun summarize(textInput: String, urlInput: String, model: String) {

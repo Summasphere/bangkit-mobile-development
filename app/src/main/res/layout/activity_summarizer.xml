@@ -88,7 +88,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_centerInParent="true"
                 android:layout_marginTop="20dp"
-                android:layout_toStartOf="@+id/clearButton"
+                android:layout_toStartOf="@id/btn_clear_text"
                 android:background="@drawable/custom_bg"
                 android:gravity="start|top"
                 android:hint="@string/input_text"
@@ -104,7 +104,7 @@
                 tools:ignore="TextContrastCheck" />
 
             <ImageButton
-                android:id="@+id/clearButton"
+                android:id="@+id/btn_clear_text"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
