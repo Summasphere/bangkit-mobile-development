@@ -150,14 +150,14 @@
                 app:layout_constraintEnd_toEndOf="parent">
 
                 <androidx.constraintlayout.utils.widget.ImageFilterView
-                    android:id="@+id/iv_preview_wordcloud"
+                    android:id="@+id/iv_result_wordcloud"
                     android:layout_width="360dp"
                     android:layout_height="360dp"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="20dp"
                     android:layout_gravity="center"
-                    android:contentDescription="@string/preview_iv"
+                    android:contentDescription="@string/iv_result_wordcloud"
                     app:round="20dp"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -196,7 +196,7 @@
                 app:layout_constraintEnd_toEndOf="parent">
 
                 <androidx.constraintlayout.utils.widget.ImageFilterView
-                    android:id="@+id/iv_preview_topics"
+                    android:id="@+id/iv_result_topics"
                     android:layout_width="360dp"
                     android:layout_height="360dp"
                     android:layout_marginStart="20dp"
@@ -204,7 +204,7 @@
                     android:layout_marginEnd="20dp"
                     android:layout_marginBottom="10dp"
                     android:layout_gravity="center"
-                    android:contentDescription="@string/preview_iv"
+                    android:contentDescription="@string/iv_result_topics"
                     app:round="20dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

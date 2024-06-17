@@ -3,22 +3,19 @@ package com.minervaai.summasphere.ui.signup
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.minervaai.summasphere.R
 import com.minervaai.summasphere.databinding.ActivitySignupBinding
-import com.minervaai.summasphere.data.request.SignupRequest
-import com.minervaai.summasphere.data.response.SignupResponse
-import com.minervaai.summasphere.data.retrofit.ApiConfig
+import com.minervaai.summasphere.helper.ResultState
 import com.minervaai.summasphere.ui.login.LoginActivity
-import com.minervaai.summasphere.ui.summarizer.SummarizerActivity
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+
 
 class SignupActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignupBinding
+    private val signupViewModel: SignupViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,10 +29,6 @@ class SignupActivity : AppCompatActivity() {
 
         binding.inputConfirmPasswordSignup.linkPasswordEditText(binding.inputPasswordSignup)
 
-        setupAction()
-    }
-
-    private fun setupAction() {
         binding.btnSignup.setOnClickListener {
             val email = binding.inputEmailSignup.text.toString()
             val password = binding.inputPasswordSignup.text.toString()
@@ -46,45 +39,81 @@ class SignupActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            signup(email, password, confirmPassword)
-        }
-    }
+//            signup(email, password, confirmPassword)
 
-    private fun signup(email: String, password: String, confirmPassword: String) {
-        val signupRequest = SignupRequest(email, password, confirmPassword)
-        ApiConfig.instance.signup(signupRequest).enqueue(object : Callback<SignupResponse> {
-            override fun onResponse(call: Call<SignupResponse>, response: Response<SignupResponse>) {
-                if (response.code() == 500) {
-                    val signupResponse = response.body()
-                    Log.d("SignupActivity", "signin successful: $signupResponse")
-                    navigateToHome()
-                }
-                if (response.code() == 400) {
-                    val signupResponse = response.body()
-                    showAlert("Signup failed: Email already exists")
-                    Log.e("SignupActivity", "Signup failed: $signupResponse")
-                } else {
-                    showAlert("Signup failed: ${response.message()}")
-                    Log.e("SignupActivity", "Signup failed: ${response.message()}")
+            signupViewModel.signup(email, password, confirmPassword). observe(this) { result ->
+                when (result) {
+                    is ResultState.Loading -> {
+                        showLoading(true)
+                    }
+
+                    is ResultState.Success -> {
+                        showLoading(false)
+                        showToast("Succesfully sign up")
+                        Log.d("SignupActivity", "Sign up successful: ${result.data}")
+                        navigateToLogin()
+                    }
+
+                    is ResultState.Error -> {
+                        showLoading(false)
+                        when (result.error) {
+                            "Email already exists" -> {
+                                showToast("Email already exists")
+                                Log.e("SignupActivity", "Sign up failed: Email already exists")
+                            }
+                            "Server error, please try again later" -> {
+                                showToast("Server error, please try again later")
+                                Log.e("SignupActivity", "Server error: Please try again later")
+                            }
+                            else -> {
+                                showToast("Failed to sign up, please try again")
+                                Log.e("SignupActivity", "Sign up failed: ${result.error}")
+                            }
+
+                        }
+                    }
+
                 }
             }
-            override fun onFailure(call: Call<SignupResponse>, t: Throwable) {
-                showToast("Error: ${t.message}")
-            }
-        })
-    }
-
-    private fun showAlert(message: String) {
-        AlertDialog.Builder(this).apply {
-            setTitle("Signup Error")
-            setMessage(message)
-            setPositiveButton("OK", null)
-            show()
         }
+
     }
 
-    private fun navigateToHome() {
-        startActivity(Intent(this, SummarizerActivity::class.java))
+//    private fun signup(email: String, password: String, confirmPassword: String) {
+//        val signupRequest = SignupRequest(email, password, confirmPassword)
+//        ApiConfig.instance.signup(signupRequest).enqueue(object : Callback<SignupResponse> {
+//            override fun onResponse(call: Call<SignupResponse>, response: Response<SignupResponse>) {
+//                if (response.code() == 500) {
+//                    val signupResponse = response.body()
+//                    Log.d("SignupActivity", "signin successful: $signupResponse")
+//                    navigateToHome()
+//                }
+//                if (response.code() == 400) {
+//                    val signupResponse = response.body()
+//                    showToast("Signup failed: Email already exists")
+//                    Log.e("SignupActivity", "Signup failed: $signupResponse")
+//                } else {
+//                    showToast("Signup failed, please try again")
+//                    Log.e("SignupActivity", "Signup failed: ${response.message()}")
+//                }
+//            }
+//            override fun onFailure(call: Call<SignupResponse>, t: Throwable) {
+//                showToast("Error: ${t.message}")
+//            }
+//        })
+//    }
+
+//    private fun showAlert(message: String) {
+//        AlertDialog.Builder(this).apply {
+//            setTitle("Sign up error")
+//            setMessage(message)
+//            setPositiveButton("OK", null)
+//            show()
+//        }
+//    }
+
+    private fun navigateToLogin() {
+        startActivity(Intent(this, LoginActivity::class.java))
         finish()
     }
 
@@ -98,5 +127,9 @@ class SignupActivity : AppCompatActivity() {
 
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        binding.progressIndicator.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 }

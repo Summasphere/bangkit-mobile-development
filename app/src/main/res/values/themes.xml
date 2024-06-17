@@ -121,6 +121,7 @@
         <item name="fontFamily">@font/montserrat_regular</item>
         <item name="android:textSize">14sp</item>
         <item name="android:textColorHint">@color/white_grey</item>
+        <item name="fontFamily">@font/montserrat_regular</item>
     </style>
 
     <style name="TextStyle.SEARCH_VIEW">

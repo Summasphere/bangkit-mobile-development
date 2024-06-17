@@ -17,14 +17,14 @@ class ResultSummarizerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        // Make EditText readonly
+        // Make EditText read-only
         binding.summarizerResultText.isFocusable = false
         binding.summarizerResultText.isClickable = false
 
         // Get summary result from Intent
-        val summaryResult = intent.getStringExtra("SUMMARY_RESULT")
-        if (!summaryResult.isNullOrEmpty()) {
-            binding.summarizerResultText.setText(summaryResult)
+        val summarizerResult = intent.getStringExtra("SUMMARY_RESULT")
+        if (!summarizerResult.isNullOrEmpty()) {
+            binding.summarizerResultText.setText(summarizerResult)
         }
 
         binding.btnCopyText.setOnClickListener{

@@ -16,6 +16,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "BASE_URL", "\"https://inilho.its.ac.id/summasphere/api/v1/\"")
     }
 
     buildTypes {
@@ -36,6 +37,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 }
 
@@ -67,6 +69,10 @@ dependencies {
     // Retrofit
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
+    implementation ("com.google.code.gson:gson:2.10.1")
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation ("com.squareup.okhttp3:logging-interceptor:4.11.0")
 
     // Firebase BoM
     implementation(platform(libs.firebase.bom))
@@ -82,6 +88,13 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
 
+    // Encrypted Shared Preference
+    implementation ("androidx.security:security-crypto:1.1.0-alpha03")
+
+    // Handling Image
+    implementation ("com.squareup.picasso:picasso:2.71828")
+
+    // Handling Markdown
     implementation("com.mikepenz:multiplatform-markdown-renderer:0.21.0")
     implementation("org.jetbrains.kotlinx:kotlinx-html-jvm:0.7.3")
 

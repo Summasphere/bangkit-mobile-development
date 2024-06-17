@@ -15,10 +15,13 @@
         android:theme="@style/Theme.Summasphere"
         tools:targetApi="31">
         <activity
-            android:name=".ui.resultsummarizer.ResultSummarizerActivity"
+            android:name=".ui.resultanalyzer.ResultAnalyzerActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.onboarding.OnboardingActivity"
+            android:name=".ui.analyzer.AnalyzerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.resultsummarizer.ResultSummarizerActivity"
             android:exported="false" />
         <activity
             android:name=".ui.summarizer.SummarizerActivity"
@@ -28,6 +31,9 @@
             android:exported="false" />
         <activity
             android:name=".ui.signup.SignupActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.onboarding.OnboardingActivity"
             android:exported="false" />
         <activity
             android:name=".ui.splashscreen.SplashScreenActivity"

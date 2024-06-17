@@ -98,7 +98,6 @@
     <string name="input_your_url">Input Your URL…</string>
     <string name="tv_analyzer_result">Analyzer Result</string>
     <string name="btn_analyzer_text">Analyzed Text</string>
-    <string name="preview_iv">Preview image view</string>
     <string name="tv_wordcloud">Most Frequently Used Words Identified by \n Word Clouds</string>
     <string name="tv_topics">Visualization of The Topics Distribution</string>
     <string name="btn_analyze">Analyze</string>
@@ -115,4 +114,6 @@
     <string name="input_change_password">New password</string>
     <string name="input_confirm_new_password">Confirm new password</string>
     <string name="btn_change_password">Change Password</string>
+    <string name="iv_result_topics">Topics distribution</string>
+    <string name="iv_result_wordcloud">Wordcloud</string>
 </resources>
