@@ -11,12 +11,12 @@
     <string name="tv_history_date">May 01, 2024 20:00</string>
     <string name="tv_history_title_summarizer">Summarizer</string>
     <string name="tv_history_description">History description</string>
-    <string name="tv_title_onboarding_1">Title</string>
-    <string name="tv_description_onboarding_1">Description</string>
-    <string name="tv_title_onboarding_2">Title</string>
-    <string name="tv_description_onboarding_2">Description</string>
-    <string name="tv_title_onboarding_3">Title</string>
-    <string name="tv_description_onboarding_3">Description</string>
+    <string name="tv_title_onboarding_1">Increase Your Productivity</string>
+    <string name="tv_description_onboarding_1"> Instantly summarize and analyze your text, URLs, and document to gain powerful insights without any hassle.</string>
+    <string name="tv_title_onboarding_2">Diverse Input Formats and Zero Typing</string>
+    <string name="tv_description_onboarding_2"> Summasphere seamlessly processes your text, URLs, and document without the need for any manual prompting, simplifying your analysis process.</string>
+    <string name="tv_title_onboarding_3">Advanced Analysis and Data Visualization</string>
+    <string name="tv_description_onboarding_3">Visualize the insights with ease using Summasphere\'s word cloud and topic distribution graph, providing you with clear and detailed descriptions for better understanding.</string>
     <string name="iv_logo">Summasphere Logo</string>
     <string name="default_web_client_id" translatable="false">579138698197-92am5np96brof03gdhe43dtq28k2qpvk.apps.googleusercontent.com</string>
     <string name="input_email_login">Email</string>
