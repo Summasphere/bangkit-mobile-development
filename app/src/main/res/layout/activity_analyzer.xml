@@ -71,13 +71,16 @@
         android:layout_width="360dp"
         android:layout_height="80dp"
         android:layout_marginTop="20dp"
+        android:background="@drawable/custom_bg_input"
         android:gravity="start|top"
-        android:background="@drawable/custom_bg"
         android:hint="@string/input_url"
         android:imeOptions="actionDone"
         android:importantForAutofill="no"
         android:inputType="textUri"
         android:padding="10dp"
+        android:scrollbars="vertical"
+        android:overScrollMode="always"
+        android:textColorHint="@color/dark_grey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/analyzer_result_bar_layout"
@@ -125,7 +128,7 @@
         android:layout_width="360dp"
         android:layout_height="100dp"
         android:layout_marginTop="12dp"
-        android:background="@drawable/custom_bg"
+        android:background="@drawable/custom_btn_bg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/divider_analyzer_layout">
@@ -146,12 +149,11 @@
             style="@style/TextStyle.BUTTON_TITLE"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
+            android:layout_marginStart="25dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="8dp"
             android:layout_toEndOf="@id/custom_btn_upload_img"
-            android:text="@string/custom_btn_upload_title"
-            android:textColor="@color/black_grey" />
+            android:text="@string/custom_btn_upload_title" />
 
         <TextView
             android:id="@+id/custom_btn_upload_subtitle"
@@ -159,11 +161,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/custom_btn_upload_title"
-            android:layout_marginStart="15dp"
+            android:layout_marginStart="25dp"
             android:layout_marginEnd="20dp"
             android:layout_toEndOf="@id/custom_btn_upload_img"
-            android:text="@string/custom_btn_upload_subtitle"
-            android:textColor="@color/black_grey" />
+            android:text="@string/custom_btn_upload_subtitle" />
     </RelativeLayout>
 
     <com.google.android.material.button.MaterialButton

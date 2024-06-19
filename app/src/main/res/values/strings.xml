@@ -116,4 +116,7 @@
     <string name="btn_change_password">Change Password</string>
     <string name="iv_result_topics">Topics distribution</string>
     <string name="iv_result_wordcloud">Wordcloud</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_logout">Log out</string>
+    <string name="dialog_logout_title">Are you sure to log out?</string>
 </resources>

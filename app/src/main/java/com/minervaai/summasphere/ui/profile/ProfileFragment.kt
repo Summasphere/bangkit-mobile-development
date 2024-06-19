@@ -1,6 +1,7 @@
 package com.minervaai.summasphere.ui.profile
 
 import ProfileFragmentViewModel
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -11,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import com.minervaai.summasphere.databinding.CustomDialogLogoutBinding
 import com.minervaai.summasphere.databinding.FragmentProfileBinding
 import com.minervaai.summasphere.helper.GoogleLoginHelper
 import com.minervaai.summasphere.helper.ProfileViewModelFactory
@@ -32,44 +34,12 @@ class ProfileFragment : Fragment() {
 
         sharedPreferences = requireContext().getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
 
+
         binding.layoutLogOut.setOnClickListener {
-            viewModel.logout(googleSignInHelper)
-            viewModel.logoutWithEmailPassword()
+            showLogoutDialog()
         }
 
-        viewModel.logout(googleSignInHelper).observe(this) { state ->
-            when (state) {
-                is ResultState.Loading -> {
-                    showLoading(true)
-                }
-                is ResultState.Success -> {
-                    showLoading(false)
-                    clearSession()
-                    navigateToOnboarding()
-                    showToast("Successfully log out")
-                }
-                is ResultState.Error -> {
-                    showToast("Failed to log out")
-                }
-            }
-        }
-
-        viewModel.logoutWithEmailPassword().observe(this) { state ->
-            when (state) {
-                is ResultState.Loading -> {
-                    showLoading(true)
-                }
-                is ResultState.Success -> {
-                    showLoading(false)
-                    clearSession()
-                    navigateToOnboarding()
-                    showToast("Successfully log out")
-                }
-                is ResultState.Error -> {
-                    showToast("Failed to log out")
-                }
-            }
-        }
+        observeLogout()
     }
 
     override fun onCreateView(
@@ -80,9 +50,66 @@ class ProfileFragment : Fragment() {
         return binding.root
     }
 
-    companion object {
-        fun newInstance() = ProfileFragment()
+    private fun showLogoutDialog() {
+        val binding = CustomDialogLogoutBinding.inflate(LayoutInflater.from(requireContext()))
+        val dialogBuilder = AlertDialog.Builder(requireContext()).setView(binding.root)
+        val alertDialog = dialogBuilder.create()
+
+        binding.btnLogout.setOnClickListener {
+            performLogout()
+            alertDialog.dismiss()
+        }
+
+        binding.btnCancel.setOnClickListener {
+            alertDialog.dismiss()
+        }
+
+        alertDialog.show()
     }
+
+    private fun performLogout() {
+        viewModel.logout(googleSignInHelper)
+        viewModel.logoutWithEmailPassword()
+    }
+
+    private fun observeLogout() {
+        viewModel.logout(googleSignInHelper).observe(viewLifecycleOwner) { state ->
+            when (state) {
+                is ResultState.Loading -> {
+                    showLoading(true)
+                }
+                is ResultState.Success -> {
+                    showLoading(false)
+                    clearSession()
+                    navigateToOnboarding()
+                    showToast("Successfully log out")
+                }
+                is ResultState.Error -> {
+                    showLoading(false)
+                    showToast("Failed to log out")
+                }
+            }
+        }
+
+        viewModel.logoutWithEmailPassword().observe(viewLifecycleOwner) { state ->
+            when (state) {
+                is ResultState.Loading -> {
+                    showLoading(true)
+                }
+                is ResultState.Success -> {
+                    showLoading(false)
+                    clearSession()
+                    navigateToOnboarding()
+                    showToast("Successfully log out")
+                }
+                is ResultState.Error -> {
+                    showLoading(false)
+                    showToast("Failed to log out")
+                }
+            }
+        }
+    }
+
 
     private fun navigateToOnboarding() {
         val intent = Intent(requireActivity(), OnboardingActivity::class.java)

@@ -97,17 +97,17 @@
 
             <EditText
                 android:id="@+id/analyzer_result_text"
+                style="@style/TextStyle.EDIT_TEXT"
                 android:layout_width="360dp"
                 android:layout_height="360dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:autofillHints="none"
-                android:background="@drawable/custom_bg"
+                android:background="@drawable/custom_bg_input"
                 android:editable="false"
-                android:focusable="false"
-                android:focusableInTouchMode="false"
                 android:gravity="top"
+                android:textColorHint="@color/dark_grey"
                 android:hint="@android:string/autofill"
                 android:inputType="none"
                 android:paddingStart="15dp"
@@ -115,6 +115,7 @@
                 android:paddingEnd="15dp"
                 android:paddingBottom="15dp"
                 android:scrollbars="vertical"
+                android:overScrollMode="always"
                 android:textColor="@color/black_grey"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -129,42 +130,26 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="16dp"
                 app:layout_constraintTop_toBottomOf="@id/analyzer_result_text"
-                app:layout_constraintBottom_toTopOf="@id/wordcloud_img_cardview"
+                app:layout_constraintBottom_toTopOf="@id/iv_result_wordcloud"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:text="@string/tv_wordcloud"/>
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/wordcloud_img_cardview"
+            <androidx.constraintlayout.utils.widget.ImageFilterView
+                android:id="@+id/iv_result_wordcloud"
                 android:layout_width="360dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_height="360dp"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginBottom="16dp"
-                android:padding="20dp"
-                app:cardCornerRadius="26dp"
-                android:backgroundTint="@color/white_grey"
+                android:layout_gravity="center"
+                android:contentDescription="@string/iv_result_wordcloud"
+                app:round="20dp"
                 app:layout_constraintTop_toBottomOf="@id/tv_wordcloud"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
-
-                <androidx.constraintlayout.utils.widget.ImageFilterView
-                    android:id="@+id/iv_result_wordcloud"
-                    android:layout_width="360dp"
-                    android:layout_height="360dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_gravity="center"
-                    android:contentDescription="@string/iv_result_wordcloud"
-                    app:round="20dp"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:srcCompat="@drawable/ic_place_holder"
-                    tools:ignore="ImageContrastCheck" />
-            </androidx.cardview.widget.CardView>
+                app:srcCompat="@drawable/ic_place_holder"
+                tools:ignore="ImageContrastCheck" />
 
             <TextView
                 android:id="@+id/tv_topics"
@@ -174,44 +159,28 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="16dp"
                 android:text="@string/tv_topics"
-                app:layout_constraintBottom_toTopOf="@id/topics_img_cardview"
+                app:layout_constraintBottom_toTopOf="@id/iv_result_topics"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.509"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/wordcloud_img_cardview" />
+                app:layout_constraintTop_toBottomOf="@id/iv_result_wordcloud" />
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/topics_img_cardview"
+            <androidx.constraintlayout.utils.widget.ImageFilterView
+                android:id="@+id/iv_result_topics"
                 android:layout_width="360dp"
-                android:layout_height="wrap_content"
+                android:layout_height="360dp"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginTop="16dp"
                 android:layout_marginBottom="10dp"
-                android:padding="20dp"
-                app:cardCornerRadius="26dp"
-                android:backgroundTint="@color/white_grey"
-                app:layout_constraintTop_toBottomOf="@id/tv_topics"
+                android:layout_gravity="center"
+                android:contentDescription="@string/iv_result_topics"
+                app:round="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
-
-                <androidx.constraintlayout.utils.widget.ImageFilterView
-                    android:id="@+id/iv_result_topics"
-                    android:layout_width="360dp"
-                    android:layout_height="360dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_gravity="center"
-                    android:contentDescription="@string/iv_result_topics"
-                    app:round="20dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_place_holder"
-                    tools:ignore="ImageContrastCheck" />
-            </androidx.cardview.widget.CardView>
+                app:layout_constraintTop_toBottomOf="@id/tv_topics"
+                app:srcCompat="@drawable/ic_place_holder"
+                tools:ignore="ImageContrastCheck" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_download_pdf"
@@ -228,7 +197,7 @@
                 app:iconSize="24dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/topics_img_cardview"
+                app:layout_constraintTop_toBottomOf="@id/iv_result_topics"
                 app:layout_constraintBottom_toTopOf="@id/btn_copy_text"
                 tools:ignore="VisualLintButtonSize,TextContrastCheck" />
 
