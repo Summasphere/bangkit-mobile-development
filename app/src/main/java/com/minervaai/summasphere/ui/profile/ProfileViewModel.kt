@@ -1,5 +1,8 @@
+package com.minervaai.summasphere.ui.profile
+
 import android.content.Context
 import android.content.SharedPreferences
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -13,8 +16,7 @@ import kotlinx.coroutines.withContext
 import retrofit2.HttpException
 import java.io.IOException
 
-class ProfileFragmentViewModel(private val context: Context) : ViewModel() {
-
+class ProfileFragmentViewModel(context: Context) : ViewModel() {
     private val sharedPreferences: SharedPreferences = context.getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
 
     fun logout(googleSignInHelper: GoogleLoginHelper): LiveData<ResultState<Unit>> {
@@ -49,6 +51,7 @@ class ProfileFragmentViewModel(private val context: Context) : ViewModel() {
                 val token = withContext(Dispatchers.IO) {
                     sharedPreferences.getString("token", null)
                 }
+                Log.d("ProfileFragmentViewModel", "Token: $token")
                 if (!token.isNullOrEmpty()) {
                     val emailLogoutSuccess = withContext(Dispatchers.IO) {
                         LogoutUtils.emailPasswordLogout(token)

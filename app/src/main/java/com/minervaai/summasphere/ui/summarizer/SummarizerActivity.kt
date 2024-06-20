@@ -1,180 +1,365 @@
 package com.minervaai.summasphere.ui.summarizer
 
 import android.annotation.SuppressLint
+import android.app.Activity
+import android.content.ContentResolver
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.provider.OpenableColumns
 import android.util.Log
+import android.view.View
+import android.webkit.MimeTypeMap
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.addTextChangedListener
+import com.minervaai.summasphere.R
+import com.minervaai.summasphere.data.retrofit.ApiService
 import com.minervaai.summasphere.databinding.ActivitySummarizerBinding
 import com.minervaai.summasphere.ui.main.MainActivity
+import com.minervaai.summasphere.ui.resultanalyzer.ResultAnalyzerActivity
 import com.minervaai.summasphere.ui.resultsummarizer.ResultSummarizerActivity
 import okhttp3.Call
 import okhttp3.Callback
+import okhttp3.MediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
 import okhttp3.Response
 import org.json.JSONObject
+import java.io.File
+import java.io.FileInputStream
+import java.io.FileOutputStream
 import java.io.IOException
+import java.io.InputStream
 import java.util.concurrent.TimeUnit
 
 class SummarizerActivity : AppCompatActivity() {
-    // val text = "Rencana yang Anda sampaikan untuk merombak encoder dan decoder terdengar cukup baik. Mengombinasikan Transformer dan Conformer pada encoder dan decoder berpotensi meningkatkan performa model, terutama jika Anda dapat memanfaatkan kelebihan dari kedua arsitektur tersebut. Namun, perlu diingat bahwa performa model juga bergantung pada banyak faktor lain seperti kualitas data, teknik preprocessing, hyperparameter, dan sebagainya. Untuk encoder, struktur yang Anda usulkan dengan 4 Conv2D diikuti Transformer dan Conformer terdengar masuk akal. Kombinasi CNN dan arsitektur self-attention seperti Transformer/Conformer sering digunakan pada tugas speech recognition untuk mengekstrak fitur dari input spektrogram secara efektif. Untuk decoder, mengombinasikan Transformer dan Conformer juga merupakan pendekatan yang baik. Decoder Transformer dapat menangkap dependensi jangka panjang dalam urutan output, sementara Conformer dapat menambahkan kemampuan untuk menangkap pola lokal dan meningkatkan modeling konvolutif. Namun, perlu diperhatikan bahwa menggabungkan Transformer dan Conformer pada decoder mungkin memerlukan sedikit modifikasi pada arsitektur karena Conformer awalnya didesain untuk encoder. Anda perlu memastikan bahwa mekanisme perhatian pada decoder Conformer masih dapat bekerja dengan baik dan tidak melanggar aturan kausal (hanya dapat mengakses token sebelumnya). Mengenai jenis perhatian yang akan digunakan, pada dasarnya semua jenis perhatian yang Anda sebutkan (multi-head attention, grouped query attention, vanilla attention, self-attention) dapat digunakan dan memiliki kelebihan masing-masing. Multi-head attention dan self-attention merupakan pilihan yang umum digunakan pada Transformer dan terbukti efektif dalam banyak tugas. Grouped query attention dan vanilla attention juga dapat dipertimbangkan, tergantung pada sumber daya komputasi dan kompleksitas yang Anda harapkan. Secara keseluruhan, rencana Anda terdengar cukup baik dari perspektif arsitektur. Namun, perlu diingat bahwa performa model juga sangat bergantung pada implementasi yang tepat, pemilihan hyperparameter yang optimal, dan kualitas data yang digunakan. Anda mungkin perlu melakukan beberapa percobaan dan evaluasi untuk menemukan kombinasi yang memberikan hasil terbaik. Mengenai pengurangan loss dan peningkatan akurasi, sulit untuk memprediksi secara pasti tanpa melakukan percobaan langsung. Namun, jika Anda dapat memanfaatkan kelebihan dari Transformer dan Conformer dengan baik, ada kemungkinan bahwa model yang diusulkan dapat memberikan performa yang lebih baik dibandingkan model sebelumnya. Namun, perlu diingat bahwa peningkatan performa tidak selalu signifikan dan mungkin membutuhkan penyesuaian dan optimasi yang cermat."
-//    private lateinit var googleSignInClient: GoogleSignInClient
-//    private lateinit var sharedPreferences: SharedPreferences
     private lateinit var binding: ActivitySummarizerBinding
-
+    private val pickDocRequest = 1
     private val client = OkHttpClient.Builder()
-        .connectTimeout(120, TimeUnit.SECONDS)
-        .readTimeout(120, TimeUnit.SECONDS)
-        .writeTimeout(120, TimeUnit.SECONDS)
+        .connectTimeout(180, TimeUnit.SECONDS)
+        .writeTimeout(180, TimeUnit.SECONDS)
+        .readTimeout(180, TimeUnit.SECONDS)
         .build()
 
-    private val BASE_URL = "https://inilho.its.ac.id/summasphere/api/v1/summary/" // ngrok URL
+    private val URI = "https://9477-103-246-107-5.ngrok-free.app/api/summarize"
+    private var fileUri: Uri? = null
+    private var lastInputType: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySummarizerBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        sharedPreferences = getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
-//
-//        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-//            .requestIdToken(getString(R.string.default_web_client_id))
-//            .requestEmail()
-//            .build()
-//        googleSignInClient = GoogleSignIn.getClient(this, gso)
-//
-//        binding.buttonLogout.setOnClickListener {
-//            googleLogout()
-//            emailPasswordLogout()
-//        }
-
-        binding.btnClearText.setOnClickListener {
-            binding.inputText.setText("")
+        binding.customBtnUpload.setOnClickListener {
+            openFilePicker()
         }
 
         binding.btnSummarize.setOnClickListener {
-            val userInputText = binding.inputText.text.toString()
-            val userInputURL = binding.inputText.text.toString()
-            val inputModel = "gemini"
-
-            if (userInputText.isNotEmpty() || userInputURL.isNotEmpty()) {
-                summarize(userInputText, userInputURL, inputModel)
+            val url = binding.inputUrl.text.toString()
+            val text = binding.inputText.text.toString()
+            if (fileUri != null) {
+                lastInputType = "File"
+                summarizerFile(fileUri!!)
+            } else if (url.isNotEmpty()) {
+                lastInputType = "URL"
+                summarizerUrl(url)
+            } else if (text.isNotEmpty()) {
+                lastInputType = "Text"
+                summarizerText(text)
             } else {
-                Toast.makeText(this, "Please input text or URL", Toast.LENGTH_SHORT).show()
+                showToast("Please provide input")
+                return@setOnClickListener
             }
+            showToast("Processing $lastInputType with model ${getSelectedModel()}")
         }
-
         binding.btnBack.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         }
 
+        binding.btnClearText.setOnClickListener {
+            clearInputs()
+            Toast.makeText(this, "All inputs cleared", Toast.LENGTH_SHORT).show()
+        }
     }
 
-    private fun summarize(textInput: String, urlInput: String, model: String) {
-        val reqBody = JSONObject().apply {
-//            put("textInput", if (textInput.isNotEmpty()) textInput else JSONObject.NULL)
-//            put("urlInput", if (urlInput.isNotEmpty()) urlInput else JSONObject.NULL)
-            put("textInput", textInput.ifEmpty { JSONObject.NULL })
-            put("urlInput", urlInput.ifEmpty { JSONObject.NULL })
-            put("model", model)
+    @Deprecated("Deprecated")
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == pickDocRequest && resultCode == Activity.RESULT_OK) {
+            data?.data?.also { uri ->
+                val fileName = getFileName(uri)
+                fileName?.let {
+                    fileUri = uri
+                    Toast.makeText(this, "File: $fileName selected", Toast.LENGTH_SHORT).show()
+                }
+            }
         }
+    }
+
+
+    private fun summarizerFile(uri: Uri) {
+        setLoading(true)
+        val file = createFileFromUri(uri)
+        val mimeType = contentResolver.getType(uri)
+        val requestBody = MultipartBody.Builder()
+            .setType(MultipartBody.FORM)
+            .addFormDataPart("mode", "pdf")
+            .addFormDataPart("model", getSelectedModel())
+            .addFormDataPart("file", file.name, file.asRequestBody(mimeType?.toMediaTypeOrNull()))
+            .build()
 
         val request = Request.Builder()
-            .url(BASE_URL)
-            .header("Content-Type", "application/json")
-//            .post(RequestBody.create("application/json".toMediaTypeOrNull(), reqBody.toString()))
-            .post(reqBody.toString().toRequestBody("application/json".toMediaTypeOrNull()))
+            .url(URI)
+            .post(requestBody)
             .build()
 
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
-                e.printStackTrace()
-                Log.e("SummaryActivity", "Error: ${e.message}")
                 runOnUiThread {
-                    Toast.makeText(this@SummarizerActivity, "Request failed: ${e.message}", Toast.LENGTH_SHORT).show()
+                    setLoading(false)
+                    showToast("Failed to upload file: ${e.message}")
+                    Log.e("SummarizerActivityFile", "Failed to upload file: ${e.message}")
                 }
             }
 
-            @SuppressLint("SetTextI18n")
             override fun onResponse(call: Call, response: Response) {
-                val body = response.body?.string()
-                val json = body?.let { JSONObject(it) }
-                val code = json?.getInt("code")
-                val status = json?.getString("status")
-                val message = json?.getString("message")
-                val summary = json?.getJSONObject("data")?.getString("summary")
-
                 runOnUiThread {
-                    if (code == 200 && status == "success") {
-                        Log.d("SummaryActivity", "Summary: $summary")
-                        Toast.makeText(this@SummarizerActivity, "Text summarized successfully", Toast.LENGTH_SHORT).show()
+                    setLoading(false)
+                    if (response.isSuccessful) {
+                        val responseData = response.body?.string()
+                        Log.d("SummarizerActivityFile", "Server response: $responseData")
+                        responseData?.let {
+                            val jsonObject = JSONObject(it)
+                            if (jsonObject.has("summary")) {
+                                val summary = jsonObject.getString("summary")
 
-                        // Start ResultSummarizerActivity and pass the summary
-                        val intent = Intent(this@SummarizerActivity, ResultSummarizerActivity::class.java).apply {
-                            putExtra("SUMMARY_RESULT", summary)
+                                Log.d("SummarizerActivityFile", "Summary: $summary")
+
+                                // Save analysis data to a temporary file
+                                val summarizerFiles = JSONObject()
+                                summarizerFiles.put("summary", summary)
+
+                                val tempFile = File.createTempFile("summarizer", ".json", cacheDir)
+                                tempFile.writeText(summarizerFiles.toString())
+
+                                val intent = Intent(this@SummarizerActivity, ResultSummarizerActivity::class.java).apply {
+                                    putExtra("SUMMARIZER_FILE_PATH", tempFile.absolutePath)
+                                }
+                                startActivity(intent)
+                            } else {
+                                showToast("Failed to summarizerFiles: Invalid response structure")
+                            }
                         }
-                        startActivity(intent)
                     } else {
-                        Toast.makeText(this@SummarizerActivity, message ?: "Failed to summarize text", Toast.LENGTH_SHORT).show()
+                        showToast("Failed to summarizerFiles: ${response.message}")
+                        Log.e("SummarizerActivityFile", "Failed to summarizerFiles: ${response.message}")
                     }
                 }
             }
         })
     }
 
-//    private fun googleLogout() {
-//        googleSignInClient.signOut().addOnCompleteListener(this) {
-//            clearSession()
-//            navigateToOnboarding()
-//            Toast.makeText(this, "Logged out from Google", Toast.LENGTH_SHORT).show()
-//        }
-//    }
-//
-//    private fun emailPasswordLogout() {
-//        val token = sharedPreferences.getString("token", null)
-//        if (token != null) {
-//            val request = Request.Builder()
-//                .url("https://inilho.its.ac.id/summasphere/api/v1/auth/logout")
-//                .header("Authorization", "Bearer $token")
-//                .post(RequestBody.create(null, byteArrayOf()))
-//                .build()
-//            client.newCall(request).enqueue(object : Callback {
-//                override fun onFailure(call: Call, e: IOException) {
-//                    e.printStackTrace()
-//                }
-//
-//                override fun onResponse(call: Call, response: Response) {
-//                    if (response.isSuccessful) {
-//                        clearSession()
-//                        runOnUiThread {
-//                            Toast.makeText(applicationContext, "Logged out successfully", Toast.LENGTH_SHORT).show()
-//                            navigateToOnboarding()
-//                        }
-//                    }
-//                }
-//            })
-//        }
-//    }
+    private fun summarizerUrl(url: String) {
+        setLoading(true)
+        val requestBody = MultipartBody.Builder()
+            .setType(MultipartBody.FORM)
+            .addFormDataPart("mode", "link")
+            .addFormDataPart("model", getSelectedModel())
+            .addFormDataPart("url", url)
+            .build()
 
-//    private fun clearSession() {
-//        with(sharedPreferences.edit()) {
-//            remove("email")
-//            remove("password")
-//            remove("token")
-//            putBoolean("IsLoggedIn", false)
-//            apply()
-//        }
-//    }
-//
-//    private fun navigateToOnboarding() {
-//        val intent = Intent(this, OnboardingActivity::class.java)
-//        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
-//        startActivity(intent)
-//    }
+        val request = Request.Builder()
+            .url(URI)
+            .post(requestBody)
+            .build()
+
+        client.newCall(request).enqueue(object : Callback {
+            override fun onFailure(call: Call, e: IOException) {
+                runOnUiThread {
+                    setLoading(false)
+                    showToast("Failed to summarizerURL: ${e.message}")
+                    Log.e("SummarizerActivityUrl", "Failed to summarizerURL: ${e.message}")
+                }
+            }
+
+            override fun onResponse(call: Call, response: Response) {
+                runOnUiThread {
+                    setLoading(false)
+                    if (response.isSuccessful) {
+                        val responseData = response.body?.string()
+                        Log.d("SummarizerActivityUrl", "Server response: $responseData")
+                        responseData?.let {
+                            val jsonObject = JSONObject(it)
+                            if (jsonObject.has("summary")) {
+                                val summary = jsonObject.getString("summary")
+
+                                Log.d("SummarizerActivityUrl", "Summary: $summary")
+
+                                // Save analysis data to a temporary file
+                                val summarizerURL = JSONObject()
+                                summarizerURL.put("summary", summary)
+
+                                val tempFile = File.createTempFile("summary", ".json", cacheDir)
+                                tempFile.writeText(summarizerURL.toString())
+
+                                val intent = Intent(this@SummarizerActivity, ResultSummarizerActivity::class.java).apply {
+                                    putExtra("SUMMARIZER_FILE_PATH", tempFile.absolutePath)
+                                }
+                                startActivity(intent)
+                            } else {
+                                showToast("Failed to summarizerURL: Invalid response structure")
+                            }
+                        }
+                    } else {
+                        showToast("Failed to summarizerURL: ${response.message}")
+                        Log.e("SummarizerActivityUrl", "Failed to summarizerURL: ${response.message}")
+                    }
+                }
+            }
+        })
+    }
+
+    private fun summarizerText(text: String) {
+        setLoading(true)
+        val requestBody = MultipartBody.Builder()
+            .setType(MultipartBody.FORM)
+            .addFormDataPart("mode", "text")
+            .addFormDataPart("model", getSelectedModel())
+            .addFormDataPart("text", text)
+            .build()
+
+        val request = Request.Builder()
+            .url(URI)
+            .post(requestBody)
+            .build()
+
+        client.newCall(request).enqueue(object : Callback {
+            override fun onFailure(call: Call, e: IOException) {
+                runOnUiThread {
+                    setLoading(false)
+                    showToast("Failed to summarizerText: ${e.message}")
+                    Log.e("SummarizerActivityText", "Failed to summarizerText: ${e.message}")
+                }
+            }
+
+            override fun onResponse(call: Call, response: Response) {
+                runOnUiThread {
+                    setLoading(false)
+                    if (response.isSuccessful) {
+                        val responseData = response.body?.string()
+                        Log.d("SummarizerActivityText", "Server response: $responseData")
+                        responseData?.let {
+                            val jsonObject = JSONObject(it)
+                            if (jsonObject.has("summary")) {
+                                val summary = jsonObject.getString("summary")
+
+                                Log.d("SummarizerActivityText", "Summary: $summary")
+
+                                // Save analysis data to a temporary file
+                                val summarizerText = JSONObject()
+                                summarizerText.put("summary", summary)
+
+                                val tempFile = File.createTempFile("summary", ".json", cacheDir)
+                                tempFile.writeText(summarizerText.toString())
+
+                                val intent = Intent(this@SummarizerActivity, ResultSummarizerActivity::class.java).apply {
+                                    putExtra("SUMMARIZER_FILE_PATH", tempFile.absolutePath)
+                                }
+                                startActivity(intent)
+                            } else {
+                                showToast("Failed to summarizerText: Invalid response structure")
+                            }
+                        }
+                    } else {
+                        showToast("Failed to summary text: ${response.message}")
+                        Log.e("SummarizerActivityText", "Failed to summarizerText: ${response.message}")
+                    }
+                }
+            }
+        })
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun clearInputs() {
+        binding.inputText.setText("")
+        binding.inputUrl.setText("")
+        binding.customBtnUploadTitle.text = getString(R.string.custom_btn_upload_title)
+        binding.customBtnUploadSubtitle.text = getString(R.string.custom_btn_upload_subtitle)
+        binding.rgModel.clearCheck()
+        fileUri = null
+    }
+
+    private fun openFilePicker() {
+        val intent = Intent(Intent.ACTION_GET_CONTENT)
+        intent.type = "application/pdf"
+        intent.putExtra(Intent.EXTRA_MIME_TYPES, arrayOf("application/pdf", "text/plain", "text/csv"))
+        startActivityForResult(intent, pickDocRequest)
+    }
+
+    private fun getFileName(uri: Uri): String? {
+        val mimeType = contentResolver.getType(uri)
+        if (mimeType != null) {
+            val extension = MimeTypeMap.getSingleton().getExtensionFromMimeType(mimeType)
+            if (extension in listOf("pdf", "txt", "csv")) {
+                val cursor = contentResolver.query(uri, null, null, null, null)
+                cursor?.use {
+                    if (it.moveToFirst()) {
+                        val nameIndex = it.getColumnIndex("_display_name")
+                        if (nameIndex != -1) {
+                            return it.getString(nameIndex)
+                        }
+                    }
+                }
+            }
+        }
+        return null
+    }
+
+    private fun createFileFromUri(uri: Uri): File {
+        val inputStream: InputStream? = contentResolver.openInputStream(uri)
+        val tempFile = File.createTempFile("upload", null, cacheDir)
+        tempFile.deleteOnExit()
+        val out = FileOutputStream(tempFile)
+
+        inputStream?.use { input ->
+            out.use { output ->
+                input.copyTo(output)
+            }
+        }
+        return tempFile
+    }
+
+    private fun getSelectedModel(): String {
+        return when (binding.rgModel.checkedRadioButtonId) {
+            R.id.rb_gemini -> "gemini"
+            R.id.rb_bart -> "bart"
+            else -> "gemini" // Default to gemini if none is selected
+        }
+    }
+
+    private fun showToast(message: String) {
+        runOnUiThread {
+            Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun setLoading(value: Boolean) {
+        runOnUiThread {
+            binding.apply {
+                if (value) {
+                    progressIndicator.visibility = View.VISIBLE
+                } else {
+                    progressIndicator.visibility = View.INVISIBLE
+                }
+            }
+        }
+    }
 }

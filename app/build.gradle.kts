@@ -95,13 +95,13 @@ dependencies {
     implementation ("com.squareup.picasso:picasso:2.71828")
 
     // Handling Markdown
-    implementation("com.mikepenz:multiplatform-markdown-renderer:0.21.0")
-    implementation("org.jetbrains.kotlinx:kotlinx-html-jvm:0.7.3")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
     // PDF
-    implementation ("com.itextpdf:itext7-core:7.1.16")
-    implementation ("com.itextpdf:itext7-fonts:7.2.0")
-    implementation ("com.itextpdf:itext7-layout:7.2.0")
+    implementation ("com.itextpdf:itext7-core:7.1.15")
+    implementation("com.itextpdf:layout:7.2.0")
 
+    implementation ("androidx.fragment:fragment-ktx:1.8.0")
 
 }

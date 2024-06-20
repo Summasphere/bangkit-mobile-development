@@ -39,8 +39,6 @@ class SignupActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-//            signup(email, password, confirmPassword)
-
             signupViewModel.signup(email, password, confirmPassword). observe(this) { result ->
                 when (result) {
                     is ResultState.Loading -> {

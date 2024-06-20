@@ -1,6 +1,6 @@
 package com.minervaai.summasphere.helper
 
-import ProfileFragmentViewModel
+import com.minervaai.summasphere.ui.profile.ProfileFragmentViewModel
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

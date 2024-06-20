@@ -255,6 +255,43 @@
                     android:text="@string/custom_btn_upload_subtitle" />
             </RelativeLayout>
 
+            <TextView
+                android:id="@+id/tv_model"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Model:"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@id/custom_btn_upload"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <RadioGroup
+                android:id="@+id/rg_model"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/tv_model"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="8dp">
+
+                <RadioButton
+                    android:id="@+id/rb_gemini"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gemini"
+                    android:textColor="@color/white"/>
+
+                <RadioButton
+                    android:id="@+id/rb_bart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bart"
+                    android:textColor="@color/white"
+                    android:layout_marginStart="16dp"/>
+            </RadioGroup>
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_summarize"
                 style="@style/TextStyle.BUTTON"
@@ -265,7 +302,7 @@
                 android:background="@drawable/btn_primary"
                 android:text="@string/btn_summarize"
                 app:backgroundTint="@null"
-                app:layout_constraintTop_toBottomOf="@id/custom_btn_upload"
+                app:layout_constraintTop_toBottomOf="@id/rg_model"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 tools:ignore="VisualLintButtonSize,TextContrastCheck"/>

@@ -24,7 +24,7 @@ googleGmsGoogleServices = "4.4.1"
 firebaseAuth = "23.0.0"
 legacySupportV4 = "1.0.0"
 lifecycleLivedataKtx = "2.8.1"
-fragmentKtx = "1.7.1"
+fragmentKtx = "1.8.0"
 
 [libraries]
 androidx-activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "activityKtx" }

@@ -1,6 +1,5 @@
 package com.minervaai.summasphere.ui.profile
 
-import ProfileFragmentViewModel
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
@@ -29,17 +28,14 @@ class ProfileFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = FragmentProfileBinding.inflate(layoutInflater)
 
         googleSignInHelper = GoogleLoginHelper(requireContext())
-
         sharedPreferences = requireContext().getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
-
 
         binding.layoutLogOut.setOnClickListener {
             showLogoutDialog()
         }
-
-        observeLogout()
     }
 
     override fun onCreateView(
@@ -48,6 +44,25 @@ class ProfileFragment : Fragment() {
     ): View {
         binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // Ensure your binding is not null and correctly references the layout
+        binding = FragmentProfileBinding.bind(view)
+
+        // Setup UI components or listeners here
+        setupListeners()
+
+        // Now observe LiveData or any asynchronous operations
+        observeLogout()
+    }
+
+    private fun setupListeners() {
+        binding.layoutLogOut.setOnClickListener {
+            showLogoutDialog()
+        }
     }
 
     private fun showLogoutDialog() {

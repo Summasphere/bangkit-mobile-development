@@ -15,9 +15,13 @@ class HomeFragment : Fragment() {
     private val viewModel: HomeViewModel by viewModels()
     private lateinit var binding: FragmentHomeBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
 
+        // Setting click listeners after binding is initialized
         binding.customBtnSummarizer.setOnClickListener {
             val intent = Intent(requireContext(), SummarizerActivity::class.java)
             startActivity(intent)
@@ -27,13 +31,7 @@ class HomeFragment : Fragment() {
             val intent = Intent(requireContext(), AnalyzerActivity::class.java)
             startActivity(intent)
         }
-    }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
 
