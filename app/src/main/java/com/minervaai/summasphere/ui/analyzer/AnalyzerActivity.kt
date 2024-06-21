@@ -36,7 +36,7 @@ class AnalyzerActivity : AppCompatActivity() {
         .readTimeout(180, TimeUnit.SECONDS)
         .build()
 
-    private val URI = "https://9477-103-246-107-5.ngrok-free.app/api/analyzer"
+    private val URI = "https://065e-103-246-107-5.ngrok-free.app/api/analyzer"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

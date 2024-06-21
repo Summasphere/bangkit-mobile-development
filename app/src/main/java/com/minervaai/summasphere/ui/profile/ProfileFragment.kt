@@ -119,7 +119,6 @@ class ProfileFragment : Fragment() {
                 }
                 is ResultState.Error -> {
                     showLoading(false)
-                    showToast("Failed to log out")
                 }
             }
         }

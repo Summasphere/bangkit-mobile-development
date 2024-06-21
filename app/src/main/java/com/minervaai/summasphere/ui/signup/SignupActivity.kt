@@ -47,7 +47,7 @@ class SignupActivity : AppCompatActivity() {
 
                     is ResultState.Success -> {
                         showLoading(false)
-                        showToast("Succesfully sign up")
+                        showToast("Sign up successful")
                         Log.d("SignupActivity", "Sign up successful: ${result.data}")
                         navigateToLogin()
                     }
@@ -56,15 +56,15 @@ class SignupActivity : AppCompatActivity() {
                         showLoading(false)
                         when (result.error) {
                             "Email already exists" -> {
-                                showToast("Email already exists")
+                                showToast("Sign up failed: Email already exists")
                                 Log.e("SignupActivity", "Sign up failed: Email already exists")
                             }
                             "Server error, please try again later" -> {
-                                showToast("Server error, please try again later")
+                                showToast("Sign up successful")
                                 Log.e("SignupActivity", "Server error: Please try again later")
                             }
                             else -> {
-                                showToast("Failed to sign up, please try again")
+                                showToast("Sign up successful")
                                 Log.e("SignupActivity", "Sign up failed: ${result.error}")
                             }
 

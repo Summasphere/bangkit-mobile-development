@@ -277,17 +277,17 @@
                 android:layout_marginTop="8dp">
 
                 <RadioButton
-                    android:id="@+id/rb_gemini"
+                    android:id="@+id/rb_model_ultra"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Gemini"
+                    android:text="Ultra"
                     android:textColor="@color/white"/>
 
                 <RadioButton
-                    android:id="@+id/rb_bart"
+                    android:id="@+id/rb_model_basic"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Bart"
+                    android:text="Basic"
                     android:textColor="@color/white"
                     android:layout_marginStart="16dp"/>
             </RadioGroup>

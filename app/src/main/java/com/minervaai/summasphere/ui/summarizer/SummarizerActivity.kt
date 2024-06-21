@@ -47,7 +47,7 @@ class SummarizerActivity : AppCompatActivity() {
         .readTimeout(180, TimeUnit.SECONDS)
         .build()
 
-    private val URI = "https://9477-103-246-107-5.ngrok-free.app/api/summarize"
+    private val URI = "https://065e-103-246-107-5.ngrok-free.app/api/summarize"
     private var fileUri: Uri? = null
     private var lastInputType: String = ""
 
@@ -339,9 +339,9 @@ class SummarizerActivity : AppCompatActivity() {
 
     private fun getSelectedModel(): String {
         return when (binding.rgModel.checkedRadioButtonId) {
-            R.id.rb_gemini -> "gemini"
-            R.id.rb_bart -> "bart"
-            else -> "gemini" // Default to gemini if none is selected
+            R.id.rb_model_ultra -> "ultra"
+            R.id.rb_model_basic -> "basic"
+            else -> "ultra"
         }
     }
 
