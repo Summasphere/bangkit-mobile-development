@@ -1,5 +1,3 @@
-@file:Suppress("DEPRECATION")
-
 package com.minervaai.summasphere.ui.login
 
 import android.content.Context
@@ -16,20 +14,9 @@ import com.minervaai.summasphere.helper.ViewModelFactory
 import com.minervaai.summasphere.ui.main.MainActivity
 import com.minervaai.summasphere.ui.signup.SignupActivity
 
-@Suppress("DEPRECATION")
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
     private val sharedPreferences by lazy { getSharedPreferences("AppPrefs", Context.MODE_PRIVATE) }
-//    private val encryptedSharedPreferences by lazy {
-//        val masterKeyAlias = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC)
-//        EncryptedSharedPreferences.create(
-//            "AppPrefs",
-//            masterKeyAlias,
-//            applicationContext,
-//            EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
-//            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
-//        )
-//    }
     private val loginViewModel by viewModels<LoginViewModel> {
         ViewModelFactory(sharedPreferences)
     }
@@ -37,8 +24,6 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-//        sharedPreferences = getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
 
         if (loginViewModel.userIsLoggedIn()) {
             navigateToHome()
@@ -52,8 +37,6 @@ class LoginActivity : AppCompatActivity() {
                 showToast("Invalid email or password")
                 return@setOnClickListener
             }
-
-//            login(email, password)
 
             loginViewModel.login(email, password).observe(this) { result ->
                 when (result) {
@@ -83,43 +66,6 @@ class LoginActivity : AppCompatActivity() {
         }
 
     }
-
-//    private fun login(email: String, password: String) {
-//        val loginRequest = LoginRequest(email, password)
-//        ApiConfig.instance.login(loginRequest).enqueue(object : Callback<LoginResponse> {
-//            override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
-//                if (response.isSuccessful) {
-//                    val loginResponse = response.body()
-//                    showToast("Login successful: ${loginResponse?.token}")
-//                    Log.d("LoginActivity", "Login successful: $loginResponse")
-//                    saveSession(email, password, loginResponse?.token)
-//                    navigateToHome()
-//                } else {
-//                    showToast("Login failed: ${response.errorBody()?.string()}")
-//                    Log.e("LoginActivity", "Login failed: ${response.errorBody()?.string()}")
-//                }
-//            }
-//
-//            override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-//                showToast("Error: ${t.message}")
-//            }
-//        })
-//    }
-//
-//    private fun saveSession(email: String, password: String, token: String?) {
-//        token?.let {
-//            val editor = sharedPreferences.edit()
-//            editor.putString("email", email)
-//            editor.putString("password", password)
-//            editor.putString("token", token)
-//            editor.apply()
-//        }
-//    }
-//
-//    private fun userIsLoggedIn(): Boolean {
-//        val token = sharedPreferences.getString("token", null)
-//        return !token.isNullOrEmpty()
-//    }
 
     private fun navigateToHome() {
         startActivity(Intent(this, MainActivity::class.java))

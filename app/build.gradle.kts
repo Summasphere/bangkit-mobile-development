@@ -16,7 +16,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField("String", "BASE_URL", "\"https://inilho.its.ac.id/summasphere/api/v1/\"")
+        buildConfigField("String", "BASE_URL", "\"https://backend-dot-summasphere-capstone.et.r.appspot.com/api/v1/\"")
     }
 
     buildTypes {

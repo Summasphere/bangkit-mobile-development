@@ -60,55 +60,19 @@ class SignupActivity : AppCompatActivity() {
                                 Log.e("SignupActivity", "Sign up failed: Email already exists")
                             }
                             "Server error, please try again later" -> {
-                                showToast("Sign up successful")
+                                showToast("Sign up failed: Server error, please try again later")
                                 Log.e("SignupActivity", "Server error: Please try again later")
                             }
                             else -> {
                                 showToast("Sign up successful")
                                 Log.e("SignupActivity", "Sign up failed: ${result.error}")
                             }
-
                         }
                     }
-
                 }
             }
         }
-
     }
-
-//    private fun signup(email: String, password: String, confirmPassword: String) {
-//        val signupRequest = SignupRequest(email, password, confirmPassword)
-//        ApiConfig.instance.signup(signupRequest).enqueue(object : Callback<SignupResponse> {
-//            override fun onResponse(call: Call<SignupResponse>, response: Response<SignupResponse>) {
-//                if (response.code() == 500) {
-//                    val signupResponse = response.body()
-//                    Log.d("SignupActivity", "signin successful: $signupResponse")
-//                    navigateToHome()
-//                }
-//                if (response.code() == 400) {
-//                    val signupResponse = response.body()
-//                    showToast("Signup failed: Email already exists")
-//                    Log.e("SignupActivity", "Signup failed: $signupResponse")
-//                } else {
-//                    showToast("Signup failed, please try again")
-//                    Log.e("SignupActivity", "Signup failed: ${response.message()}")
-//                }
-//            }
-//            override fun onFailure(call: Call<SignupResponse>, t: Throwable) {
-//                showToast("Error: ${t.message}")
-//            }
-//        })
-//    }
-
-//    private fun showAlert(message: String) {
-//        AlertDialog.Builder(this).apply {
-//            setTitle("Sign up error")
-//            setMessage(message)
-//            setPositiveButton("OK", null)
-//            show()
-//        }
-//    }
 
     private fun navigateToLogin() {
         startActivity(Intent(this, LoginActivity::class.java))
