@@ -2,33 +2,26 @@
 The source code of the Summasphere (Summarizer and Analyzer of Long Corpus) Apps using Kotlin as a Programming Language
 
 - ### Project Architecture
-![Summasphere](https://drive.google.com/file/d/1Zk8W-CVcZZLx4gc3SS0wflu98HfFWsS8/view?usp=drive_link)
+![MD Implementation](https://github.com/Summasphere/bangkit-mobile-development/assets/123135519/affac823-3609-49ae-b2cd-9bbed39ef60c)
 
 - ### Implementation Flow:
 
 * **Input Handling on Android App:**
   Our Android app receives input in the form of text, documents (docs), or URLs. This input is then converted into JSON format for standardized data handling.
   
-* **Transmission to Cloud Computing:**
-  The JSON data is transmitted to our Cloud computing infrastructure. Here, the Cloud initiates a request to retrieve relevant data from the connected database.
+* **Transmission to Cloud Computing:** The JSON data is transmitted to our Cloud computing infrastructure. Here, the Cloud initiates a request to retrieve relevant data from the connected database.
 
-* **Summarization and Analysis Process:**
-  The retrieved data is passed through a summarizer and analyzer module. These modules are integrated with a Machine Learning (ML) model via FastAPI for efficient processing.
+* **Summarization and Analysis Process:** The retrieved data is passed through a summarizer and analyzer module. These modules are integrated with a Machine Learning (ML) model via FastAPI for efficient processing.
   
-* **ML Model Integration via FastAPI:**
-  The summarization and analysis tasks are delegated to the ML model through FastAPI endpoints. The ML model processes the data to generate a JSON response containing summaries and analyses.
+* **ML Model Integration via FastAPI:** The summarization and analysis tasks are delegated to the ML model through FastAPI endpoints. The ML model processes the data to generate a JSON response containing summaries and analyses.
 
-* **Data Flow Back to Cloud Computing:**
-  The JSON response, containing summaries and analyses, is sent back to the Cloud computing environment.
+* **Data Flow Back to Cloud Computing:** The JSON response, containing summaries and analyses, is sent back to the Cloud computing environment.
 
-* **Integration with Database:**
-  In the Cloud, the processed results are integrated back with the database for storage and retrieval purposes.
+* **Integration with Database:** In the Cloud, the processed results are integrated back with the database for storage and retrieval purposes.
 
-* **Return to Android App:**
-  Finally, the summarized and analyzed results are formatted into JSON format again. This JSON data is transmitted back to the Android app.
+* **Return to Android App:** Finally, the summarized and analyzed results are formatted into JSON format again. This JSON data is transmitted back to the Android app.
   
-* **User Accessibility:**
-  Users can easily copy the text-based summary or download it as a PDF directly from the app.
+* **User Accessibility:** Users can easily copy the text-based summary or download it as a PDF directly from the app.
 
 * **Conclusion:**
 This flow ensures that Summasphere provides users with efficient summarization and analysis of documents, text, and URLs, leveraging Cloud computing and Machine Learning to deliver accurate and accessible results.
@@ -38,7 +31,7 @@ Based on this implementation there are several keys of our app :
 - User Experience: User-friendly options to copy text or download summaries as PDFs.
 
 - ### Mock-up
-![Summasphere](https://drive.google.com/file/d/17i-6w9hnb46wnRRwL0fhZEtRKIB31b0n/view?usp=drive_link)
+![mockup](https://github.com/Summasphere/bangkit-mobile-development/assets/123135519/f5132daf-ad52-478c-82a5-d6bb74e06513)
 
 - ### Features of Summasphere
   * **Summarizer**
