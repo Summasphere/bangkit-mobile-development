@@ -50,7 +50,7 @@ The source code of the Summasphere (Summarizer and Analyzer of Long Corpus) Apps
   - [Navigation Component](https://developer.android.com/jetpack/androidx/releases/navigation)
   - [AndroidX Security Crypto](https://developer.android.com/jetpack/androidx/releases/security)
   - [Picasso](https://square.github.io/picasso/)
-  - [iText PDF](https://itextpdf.com/en/products/itext-7)
+  - [Android PDFDocument](https://developer.android.com/reference/android/graphics/pdf/PdfDocument)
 
 ### Getting Started Application
 
