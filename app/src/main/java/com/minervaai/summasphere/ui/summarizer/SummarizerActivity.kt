@@ -47,7 +47,7 @@ class SummarizerActivity : AppCompatActivity() {
         .readTimeout(180, TimeUnit.SECONDS)
         .build()
 
-    private val URI = "https://065e-103-246-107-5.ngrok-free.app/api/summarize"
+    private val URI = "https://backend-dot-summasphere-capstone.et.r.appspot.com/machine-learning/api/summarize"
     private var fileUri: Uri? = null
     private var lastInputType: String = ""
 

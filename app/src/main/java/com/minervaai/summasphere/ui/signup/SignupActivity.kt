@@ -12,7 +12,6 @@ import com.minervaai.summasphere.databinding.ActivitySignupBinding
 import com.minervaai.summasphere.helper.ResultState
 import com.minervaai.summasphere.ui.login.LoginActivity
 
-
 class SignupActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignupBinding
     private val signupViewModel: SignupViewModel by viewModels()
