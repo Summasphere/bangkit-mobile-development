@@ -22,10 +22,8 @@ The source code of the Summasphere (Summarizer and Analyzer of Long Corpus) Apps
 ![mockup](https://github.com/Summasphere/bangkit-mobile-development/assets/123135519/f5132daf-ad52-478c-82a5-d6bb74e06513)
 
 - ### Features of Summasphere
-  * **Summarizer**
-    Users can quickly obtain concise summaries of text, documents, or URLs using this feature.
-  * **Analyzer**
-    Users receive a detailed analysis of input data (text, documents, or URLs), enhancing their understanding and insights through Topics Descriptions, Word Cloud, and   Topics Distribution Graph
+  * **Summarizer**: Users can quickly obtain concise summaries of text, documents, or URLs using this feature.
+  * **Analyzer**: Users receive a detailed analysis of input data (text, documents, or URLs), enhancing their understanding and insights through Topics Descriptions, Word Cloud, and   Topics Distribution Graph
 
 - ### Dependencies
   - [AndroidX Core KTX](https://developer.android.com/jetpack/androidx/releases/core)
@@ -57,4 +55,4 @@ The source code of the Summasphere (Summarizer and Analyzer of Long Corpus) Apps
   - ### Preparation
       - ##### Tools Sofware
         - [Android Studio](https://developer.android.com/studio)
-        - [Postmant](https://www.postman.com/) to test API from Cloud Computing
+        - [Postman](https://www.postman.com/) to test API from Cloud Computing
